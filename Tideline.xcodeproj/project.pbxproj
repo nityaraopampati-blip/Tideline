@@ -45,6 +45,7 @@
 		BDF25362F8FB06ED99E42555 /* TrueFalseQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD7D2C33E2BE68C6BB0829 /* TrueFalseQuestion.swift */; };
 		BE04A895B440F57BA60B14EE /* TideScoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD9656FF6C87C86C9358F4 /* TideScoreCard.swift */; };
 		C2CB1946CFAF754B68B1F416 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED4400CF986298762558CE /* SearchView.swift */; };
+		C52F5C4DC753650ADD25A910 /* SortableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4CEA464A4D0097DD65D973 /* SortableItem.swift */; };
 		D0509DD972F5A7240CFDC58C /* PlasticItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D001E7A28681279DE437EE4 /* PlasticItem.swift */; };
 		D22CDD54A2B4492D739ED9AB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA7E22308CB5E3F559C7DFE /* ProfileView.swift */; };
 		D6820042ED92639B9A290B11 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2492B78416CEFDC4658573B /* HomeView.swift */; };
@@ -110,6 +111,7 @@
 		EC1F965144E31ED92A81EA27 /* ScanActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanActionCard.swift; sourceTree = "<group>"; };
 		F2492B78416CEFDC4658573B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F319835947A1F11D098AF91D /* BarcodeLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeLookupService.swift; sourceTree = "<group>"; };
+		FB4CEA464A4D0097DD65D973 /* SortableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortableItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -209,6 +211,7 @@
 				0451C20FF9E28251F997AA7D /* QuizQuestion.swift */,
 				40DCC984B9FBE5F232D9BDA4 /* QuizResult.swift */,
 				0C0DA7C4B1969771119AF53B /* ScanHistoryEntry.swift */,
+				FB4CEA464A4D0097DD65D973 /* SortableItem.swift */,
 				4CAD7D2C33E2BE68C6BB0829 /* TrueFalseQuestion.swift */,
 				36A852E8E33771EE4F080F7B /* UserProfile.swift */,
 			);
@@ -373,6 +376,7 @@
 				EA15B499E240D6784533B3D8 /* ScanView.swift in Sources */,
 				C2CB1946CFAF754B68B1F416 /* SearchView.swift in Sources */,
 				749D84C2FE05C4AAE6277760 /* SortThePlasticView.swift in Sources */,
+				C52F5C4DC753650ADD25A910 /* SortableItem.swift in Sources */,
 				3A483FD3F872CD4B00945411 /* StatsGrid.swift in Sources */,
 				52AE88E26B422C54A09734C7 /* Theme.swift in Sources */,
 				BE04A895B440F57BA60B14EE /* TideScoreCard.swift in Sources */,

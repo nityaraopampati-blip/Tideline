@@ -55,4 +55,35 @@ enum GameContent {
             explanation: "Unlike most plastics, which degrade in quality with each reprocessing, aluminum and glass can be recycled repeatedly with little to no quality loss."
         ),
     ]
+
+    /// "Sort the Plastic" pool: Tideline's 20 seeded items (classified
+    /// recyclable/not from their recyclability field's leading word — only
+    /// "High" is treated as curbside-recyclable, matching how conservative
+    /// real curbside programs are) plus a few common non-plastic recyclables
+    /// for variety, matching the prototype's mix.
+    static let sortPool: [SortableItem] = [
+        SortableItem(name: "Plastic water bottle", subtitle: "PET (#1)", emoji: "🧴", recyclable: true),
+        SortableItem(name: "Plastic straw", subtitle: "Usually PP (#5)", emoji: "🥤", recyclable: false),
+        SortableItem(name: "Plastic grocery bag", subtitle: "Film plastic", emoji: "🛍️", recyclable: false),
+        SortableItem(name: "Sandwich / zip-top bag", subtitle: "Film plastic", emoji: "🥪", recyclable: false),
+        SortableItem(name: "Plastic utensils", subtitle: "Usually PS (#6)", emoji: "🍴", recyclable: false),
+        SortableItem(name: "Styrofoam cup / container", subtitle: "PS (#6)", emoji: "☕️", recyclable: false),
+        SortableItem(name: "Plastic takeout container", subtitle: "Mixed plastics", emoji: "🥡", recyclable: false),
+        SortableItem(name: "Produce bag", subtitle: "Thin film plastic", emoji: "🥬", recyclable: false),
+        SortableItem(name: "Bottle cap", subtitle: "Recyclable only if on bottle", emoji: "🔘", recyclable: false),
+        SortableItem(name: "Shampoo / detergent bottle", subtitle: "HDPE (#2)", emoji: "🧴", recyclable: true),
+        SortableItem(name: "Snack / chip bag", subtitle: "Mixed foil + plastic", emoji: "🍟", recyclable: false),
+        SortableItem(name: "Cold drink cup", subtitle: "Mixed plastics", emoji: "🥤", recyclable: false),
+        SortableItem(name: "Coffee cup plastic lid", subtitle: "Mixed plastics, small", emoji: "🫖", recyclable: false),
+        SortableItem(name: "Plastic toothbrush", subtitle: "Mixed materials", emoji: "🪥", recyclable: false),
+        SortableItem(name: "Disposable razor", subtitle: "Mixed materials", emoji: "🪒", recyclable: false),
+        SortableItem(name: "Six-pack rings", subtitle: "HDPE, mixed", emoji: "🔗", recyclable: false),
+        SortableItem(name: "Bubble wrap", subtitle: "Film plastic", emoji: "🫧", recyclable: false),
+        SortableItem(name: "Plastic milk jug", subtitle: "HDPE (#2)", emoji: "🥛", recyclable: true),
+        SortableItem(name: "Yogurt cup", subtitle: "PP (#5), small", emoji: "🥣", recyclable: false),
+        SortableItem(name: "Cleaning product bottle", subtitle: "HDPE (#2)", emoji: "🧽", recyclable: true),
+        SortableItem(name: "Aluminum can", subtitle: "Metal", emoji: "🥫", recyclable: true),
+        SortableItem(name: "Glass jar", subtitle: "Glass", emoji: "🍯", recyclable: true),
+        SortableItem(name: "Cardboard box", subtitle: "Paper fiber", emoji: "📦", recyclable: true),
+    ]
 }
