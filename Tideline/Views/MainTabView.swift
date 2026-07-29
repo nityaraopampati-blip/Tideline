@@ -9,10 +9,10 @@ struct MainTabView: View {
                 .tabItem { Label("Scan", systemImage: "camera.viewfinder") }
             LearnHubView()
                 .tabItem { Label("Learn", systemImage: "gamecontroller.fill") }
-            HistoryView()
-                .tabItem { Label("History", systemImage: "clock.fill") }
-            ProfileView()
-                .tabItem { Label("Profile", systemImage: "person.fill") }
+            ChallengesView()
+                .tabItem { Label("Challenges", systemImage: "trophy.fill") }
+            CommunityView()
+                .tabItem { Label("Community", systemImage: "person.3.fill") }
         }
     }
 }

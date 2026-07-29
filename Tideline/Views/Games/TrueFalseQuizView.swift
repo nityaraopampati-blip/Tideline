@@ -186,6 +186,8 @@ struct TrueFalseQuizView: View {
     private func advance() {
         if currentIndex == questions.count - 1 {
             LocalStore.shared.recordScore(score, for: .trueFalseQuiz)
+            let perfectBonus = score == questions.count ? 20 : 0
+            LocalStore.shared.addXP(score * 5 + perfectBonus)
             phase = .finished
         } else {
             currentIndex += 1

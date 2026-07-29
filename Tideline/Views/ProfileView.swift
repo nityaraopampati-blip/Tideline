@@ -40,15 +40,6 @@ struct ProfileView: View {
                         }
                     }
 
-                    TideCard {
-                        VStack(alignment: .leading, spacing: 6) {
-                            EyebrowText(text: "Points & Badges")
-                            Text("Coming soon in a future update!")
-                                .font(.system(size: 13))
-                                .foregroundStyle(TideTheme.inkSoft)
-                        }
-                    }
-
                     Button("Log Out", role: .destructive) {
                         showSignOutConfirmation = true
                     }

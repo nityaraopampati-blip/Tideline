@@ -14,6 +14,8 @@ final class LocalStore {
         static let scanHistory = "tideline.scanHistory"
         static let hasPromptedBaselineQuiz = "tideline.hasPromptedBaselineQuiz"
         static let gameBestScores = "tideline.gameBestScores"
+        static let levelState = "tideline.levelState"
+        static let challengeProgress = "tideline.challengeProgress"
     }
 
     enum GameID: String {
@@ -62,12 +64,49 @@ final class LocalStore {
         gameBestScores[game.rawValue] = score
     }
 
+    var levelState: LevelState {
+        get { decode(Key.levelState) ?? LevelState() }
+        set { encode(newValue, forKey: Key.levelState) }
+    }
+
+    @discardableResult
+    func addXP(_ amount: Int) -> LevelState {
+        var state = levelState
+        state.addXP(amount)
+        levelState = state
+        return state
+    }
+
+    /// Progress toward each challenge, keyed by challenge ID.
+    var challengeProgress: [String: Int] {
+        get { decode(Key.challengeProgress) ?? [:] }
+        set { encode(newValue, forKey: Key.challengeProgress) }
+    }
+
+    func progress(for challengeID: String) -> Int {
+        challengeProgress[challengeID] ?? 0
+    }
+
+    /// Increments a challenge's progress by one, up to its goal, and awards
+    /// XP for the bump — matching the prototype's bumpChallenge behavior.
+    @discardableResult
+    func bumpChallenge(_ challengeID: String, goal: Int, xpReward: Int) -> Int {
+        let current = progress(for: challengeID)
+        guard current < goal else { return current }
+        let updated = current + 1
+        challengeProgress[challengeID] = updated
+        addXP(xpReward)
+        return updated
+    }
+
     func signOut() {
         defaults.removeObject(forKey: Key.profile)
         defaults.removeObject(forKey: Key.quizResults)
         defaults.removeObject(forKey: Key.scanHistory)
         defaults.removeObject(forKey: Key.hasPromptedBaselineQuiz)
         defaults.removeObject(forKey: Key.gameBestScores)
+        defaults.removeObject(forKey: Key.levelState)
+        defaults.removeObject(forKey: Key.challengeProgress)
     }
 
     private func decode<T: Decodable>(_ key: String) -> T? {

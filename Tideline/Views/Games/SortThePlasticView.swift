@@ -213,6 +213,8 @@ struct SortThePlasticView: View {
             cardOpacity = 1
             if index >= items.count {
                 LocalStore.shared.recordScore(score, for: .sortThePlastic)
+                let perfectBonus = score == items.count ? 20 : 0
+                LocalStore.shared.addXP(score * 5 + perfectBonus)
                 phase = .finished
             }
         }

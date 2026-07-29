@@ -3,6 +3,8 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var appState: AppState
     @State private var selectedRange: LogRange = .week
+    @State private var showFullHistory = false
+    @State private var showProfile = false
 
     private var recentScans: [ScanHistoryEntry] {
         Array(appState.scanHistory.prefix(5))
@@ -58,24 +60,52 @@ struct HomeView: View {
             .background(TideTheme.background.ignoresSafeArea())
             .navigationBarHidden(true)
             .withScanDestinations()
+            .sheet(isPresented: $showFullHistory) {
+                HistoryView()
+            }
+            .sheet(isPresented: $showProfile) {
+                ProfileView()
+            }
         }
     }
 
     private var header: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            EyebrowText(text: "Home")
-            Text(greeting)
-                .font(.system(size: 30, weight: .bold, design: .rounded))
-                .foregroundStyle(TideTheme.ink)
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 6) {
+                EyebrowText(text: "Home")
+                Text(greeting)
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .foregroundStyle(TideTheme.ink)
+            }
+            Spacer()
+            Button {
+                showProfile = true
+            } label: {
+                ZStack {
+                    Circle()
+                        .fill(Color(.secondarySystemGroupedBackground))
+                        .frame(width: 40, height: 40)
+                    Image(systemName: "gearshape.fill")
+                        .font(.system(size: 16))
+                        .foregroundStyle(TideTheme.deep)
+                }
+            }
+            .buttonStyle(TidePressableStyle())
         }
         .padding(.top, 8)
     }
 
     private var recentSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Recent Scans")
-                .font(.system(size: 18, weight: .semibold, design: .rounded))
-                .foregroundStyle(TideTheme.ink)
+            HStack {
+                Text("Recent Scans")
+                    .font(.system(size: 18, weight: .semibold, design: .rounded))
+                    .foregroundStyle(TideTheme.ink)
+                Spacer()
+                Button("Full History ›") { showFullHistory = true }
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(TideTheme.tide)
+            }
 
             VStack(spacing: 10) {
                 ForEach(recentScans) { entry in
