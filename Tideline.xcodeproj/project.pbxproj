@@ -21,6 +21,7 @@
 		2DE4B5A8E6AB50D7831F3F44 /* PlasticItemLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1381D6641358F3FC87CCB1 /* PlasticItemLibraryTests.swift */; };
 		2DE6FD7A0EC3416F6B4EA84F /* RunnerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDE0F43F2FEA5AF9B3A71A1 /* RunnerObject.swift */; };
 		328A3670982C550FBAC3984D /* PhotoClassifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469085BAA5EBF1071D48FA1 /* PhotoClassifierService.swift */; };
+		344E6F43F665F406C88C91AC /* CleanupEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A67206D882934BFD3DA99 /* CleanupEvent.swift */; };
 		37B89FA080EF581E3DD0FD6A /* LevelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317AD5482C8222A1DD6DC0E0 /* LevelState.swift */; };
 		39A354B0E8070AF122C8F4A5 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9D991C32EB4C924C2B4D3 /* ResultView.swift */; };
 		3A483FD3F872CD4B00945411 /* StatsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8C0CAE6908686A565BE72 /* StatsGrid.swift */; };
@@ -28,6 +29,7 @@
 		4CB3CA472DB080A2F244252C /* ScanActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1F965144E31ED92A81EA27 /* ScanActionCard.swift */; };
 		50FC47B080C7A1C80DA7C6AE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0512492A5A34F22D7BA6D58D /* AppState.swift */; };
 		52AE88E26B422C54A09734C7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86233459F68C66174B615F61 /* Theme.swift */; };
+		532822EA46999D82AFD94DA1 /* CreateEventSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0469065037F54661B1ACE7 /* CreateEventSheet.swift */; };
 		538E1825F0AEEAFB3014638A /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39150932EBD265155E72CA7B /* Badge.swift */; };
 		5CC56F86CBE8C2C1651A68B8 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3905FFA144D7662E7B9DB68E /* Challenge.swift */; };
 		5D27834810F21F7E02C3E945 /* PhotoScanCapability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675EB36C0CAA05B2AA14961 /* PhotoScanCapability.swift */; };
@@ -54,6 +56,7 @@
 		D0509DD972F5A7240CFDC58C /* PlasticItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D001E7A28681279DE437EE4 /* PlasticItem.swift */; };
 		D22CDD54A2B4492D739ED9AB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA7E22308CB5E3F559C7DFE /* ProfileView.swift */; };
 		D6820042ED92639B9A290B11 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2492B78416CEFDC4658573B /* HomeView.swift */; };
+		DB55D7E6AD8B423A8EAB07CE /* CommunityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FC28405120E2E6BDF19FA /* CommunityStore.swift */; };
 		E04EF09CF611D3D1A571C010 /* BaselineQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B902947F29410224CA309 /* BaselineQuizView.swift */; };
 		E8191C333554557239DE5D2F /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B5530C7CEF5434B5D15FB /* CommunityView.swift */; };
 		EA15B499E240D6784533B3D8 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129D977CF76533DB2967B00 /* ScanView.swift */; };
@@ -89,6 +92,7 @@
 		3905FFA144D7662E7B9DB68E /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		39150932EBD265155E72CA7B /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		40DCC984B9FBE5F232D9BDA4 /* QuizResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResult.swift; sourceTree = "<group>"; };
+		441A67206D882934BFD3DA99 /* CleanupEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanupEvent.swift; sourceTree = "<group>"; };
 		4469085BAA5EBF1071D48FA1 /* PhotoClassifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoClassifierService.swift; sourceTree = "<group>"; };
 		4681F6BDCB690719C64DBFA0 /* TrueFalseQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseQuizView.swift; sourceTree = "<group>"; };
 		4CAD7D2C33E2BE68C6BB0829 /* TrueFalseQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseQuestion.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 		9675EB36C0CAA05B2AA14961 /* PhotoScanCapability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScanCapability.swift; sourceTree = "<group>"; };
 		9BCD9656FF6C87C86C9358F4 /* TideScoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideScoreCard.swift; sourceTree = "<group>"; };
 		9D001E7A28681279DE437EE4 /* PlasticItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticItem.swift; sourceTree = "<group>"; };
+		A83FC28405120E2E6BDF19FA /* CommunityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityStore.swift; sourceTree = "<group>"; };
 		AB0D33CEE32CA258C55F0FCF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		ACBF6AE4C4B80B32ABC705DD /* AIEstimateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIEstimateService.swift; sourceTree = "<group>"; };
 		BA7FD6685B119885BAFF7ADB /* ImpactStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStats.swift; sourceTree = "<group>"; };
@@ -119,6 +124,7 @@
 		D674DB3AB22D3452831C9DE4 /* BarcodeScannerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerRepresentable.swift; sourceTree = "<group>"; };
 		E05963725CCCE430D6651AE1 /* SortThePlasticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortThePlasticView.swift; sourceTree = "<group>"; };
 		E558FD48A4A78CBA3DDC39FA /* ChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesView.swift; sourceTree = "<group>"; };
+		EC0469065037F54661B1ACE7 /* CreateEventSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventSheet.swift; sourceTree = "<group>"; };
 		EC1F965144E31ED92A81EA27 /* ScanActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanActionCard.swift; sourceTree = "<group>"; };
 		ED2AFBC4D67207F24FE1345B /* ChallengeContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeContent.swift; sourceTree = "<group>"; };
 		F2492B78416CEFDC4658573B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 				7D73FFCFEFACADC055E7B0EA /* CameraCaptureRepresentable.swift */,
 				E558FD48A4A78CBA3DDC39FA /* ChallengesView.swift */,
 				0D0B5530C7CEF5434B5D15FB /* CommunityView.swift */,
+				EC0469065037F54661B1ACE7 /* CreateEventSheet.swift */,
 				AB0D33CEE32CA258C55F0FCF /* HistoryView.swift */,
 				F2492B78416CEFDC4658573B /* HomeView.swift */,
 				62502BA574AEF99B9005BB65 /* MainTabView.swift */,
@@ -199,6 +206,7 @@
 				ACBF6AE4C4B80B32ABC705DD /* AIEstimateService.swift */,
 				F319835947A1F11D098AF91D /* BarcodeLookupService.swift */,
 				ED2AFBC4D67207F24FE1345B /* ChallengeContent.swift */,
+				A83FC28405120E2E6BDF19FA /* CommunityStore.swift */,
 				BEF8D97BB4F8A53B981F94FE /* GameContent.swift */,
 				BA7FD6685B119885BAFF7ADB /* ImpactStats.swift */,
 				0F8F4DC0552D9FAC841CB0FC /* LocalStore.swift */,
@@ -223,6 +231,7 @@
 			children = (
 				39150932EBD265155E72CA7B /* Badge.swift */,
 				3905FFA144D7662E7B9DB68E /* Challenge.swift */,
+				441A67206D882934BFD3DA99 /* CleanupEvent.swift */,
 				317AD5482C8222A1DD6DC0E0 /* LevelState.swift */,
 				9D001E7A28681279DE437EE4 /* PlasticItem.swift */,
 				0451C20FF9E28251F997AA7D /* QuizQuestion.swift */,
@@ -373,8 +382,11 @@
 				5CC56F86CBE8C2C1651A68B8 /* Challenge.swift in Sources */,
 				63DFA039FE48D322529DA98F /* ChallengeContent.swift in Sources */,
 				6C88F94F6B39A41676C6D905 /* ChallengesView.swift in Sources */,
+				344E6F43F665F406C88C91AC /* CleanupEvent.swift in Sources */,
+				DB55D7E6AD8B423A8EAB07CE /* CommunityStore.swift in Sources */,
 				E8191C333554557239DE5D2F /* CommunityView.swift in Sources */,
 				2B9018A0F6D44B35A1FEA3A5 /* ContentView.swift in Sources */,
+				532822EA46999D82AFD94DA1 /* CreateEventSheet.swift in Sources */,
 				BBE3BAE69FC247DDB546B11D /* GameContent.swift in Sources */,
 				8B89036507905014991CA8EC /* HistoryView.swift in Sources */,
 				D6820042ED92639B9A290B11 /* HomeView.swift in Sources */,
