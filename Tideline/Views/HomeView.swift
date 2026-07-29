@@ -47,23 +47,7 @@ struct HomeView: View {
 
                     PlasticLogSection(selectedRange: $selectedRange, buckets: chartBuckets)
 
-                    VStack(spacing: 14) {
-                        actionCard(
-                            destination: .barcode, icon: "barcode.viewfinder",
-                            title: "Scan Barcode", subtitle: "Point your camera at a barcode",
-                            tint: TideTheme.tide
-                        )
-                        actionCard(
-                            destination: .photo, icon: "camera.fill",
-                            title: "Take Photo", subtitle: "Snap a photo of an item",
-                            tint: TideTheme.coral
-                        )
-                        actionCard(
-                            destination: .search, icon: "magnifyingglass",
-                            title: "Search by Name", subtitle: "Type in what you're holding",
-                            tint: Color(hex: 0xE8A93B)
-                        )
-                    }
+                    ScanActionList()
 
                     if !recentScans.isEmpty {
                         recentSection
@@ -73,22 +57,7 @@ struct HomeView: View {
             }
             .background(TideTheme.background.ignoresSafeArea())
             .navigationBarHidden(true)
-            .navigationDestination(for: HomeDestination.self) { destination in
-                switch destination {
-                case .barcode:
-                    BarcodeScanView()
-                case .photo:
-                    PhotoScanView()
-                case .search:
-                    SearchView()
-                case .historyEntry(let entry):
-                    if let item = entry.cachedItem {
-                        ResultView(item: item)
-                    } else {
-                        UnavailableResultView(itemName: entry.itemName)
-                    }
-                }
-            }
+            .withScanDestinations()
         }
     }
 
@@ -100,38 +69,6 @@ struct HomeView: View {
                 .foregroundStyle(TideTheme.ink)
         }
         .padding(.top, 8)
-    }
-
-    private func actionCard(destination: HomeDestination, icon: String, title: String, subtitle: String, tint: Color) -> some View {
-        NavigationLink(value: destination) {
-            HStack(spacing: 16) {
-                ZStack {
-                    Circle()
-                        .fill(tint.opacity(0.15))
-                        .frame(width: 52, height: 52)
-                    Image(systemName: icon)
-                        .font(.title3.weight(.semibold))
-                        .foregroundStyle(tint)
-                }
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(title)
-                        .font(.system(size: 16, weight: .semibold, design: .rounded))
-                        .foregroundStyle(TideTheme.ink)
-                    Text(subtitle)
-                        .font(.system(size: 13))
-                        .foregroundStyle(TideTheme.inkSoft)
-                }
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(TideTheme.inkSoft.opacity(0.6))
-            }
-            .padding(16)
-            .background(Color(.secondarySystemGroupedBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            .shadow(color: TideTheme.cardShadow, radius: 8, y: 3)
-        }
-        .buttonStyle(TidePressableStyle())
     }
 
     private var recentSection: some View {
@@ -153,13 +90,6 @@ struct HomeView: View {
             }
         }
     }
-}
-
-enum HomeDestination: Hashable {
-    case barcode
-    case photo
-    case search
-    case historyEntry(ScanHistoryEntry)
 }
 
 struct HistoryRow: View {

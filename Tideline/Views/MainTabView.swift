@@ -5,6 +5,8 @@ struct MainTabView: View {
         TabView {
             HomeView()
                 .tabItem { Label("Home", systemImage: "house.fill") }
+            ScanView()
+                .tabItem { Label("Scan", systemImage: "camera.viewfinder") }
             HistoryView()
                 .tabItem { Label("History", systemImage: "clock.fill") }
             ProfileView()
