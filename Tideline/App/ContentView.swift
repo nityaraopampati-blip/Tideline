@@ -1,28 +1,24 @@
 import SwiftUI
 
-/// Temporary root view for the scaffolding milestone. This confirms the
-/// bundled seed data loads correctly; it will be replaced by the real
-/// Welcome / Sign-in flow in the next milestone.
+/// Routes between the sign-in flow, the once-only baseline quiz, and the
+/// main app, based on where the user is in that sequence.
 struct ContentView: View {
-    private let library = PlasticItemLibrary.shared
+    @EnvironmentObject private var appState: AppState
 
     var body: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "leaf.fill")
-                .font(.system(size: 48))
-                .foregroundStyle(.green)
-            Text("Tideline")
-                .font(.largeTitle.bold())
-            Text("Scaffolding check")
-                .font(.headline)
-                .foregroundStyle(.secondary)
-            Text("\(library.items.count) plastic items loaded")
-            Text("\(library.quizQuestions.count) quiz questions loaded")
+        Group {
+            if !appState.isSignedIn {
+                WelcomeView()
+            } else if !appState.hasPromptedBaselineQuiz {
+                BaselineQuizView()
+            } else {
+                MainTabView()
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(AppState())
 }

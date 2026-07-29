@@ -1,6 +1,6 @@
 import Foundation
 
-struct PlasticItem: Codable, Identifiable, Equatable {
+struct PlasticItem: Codable, Identifiable, Equatable, Hashable {
     var id: String { name }
 
     let name: String
