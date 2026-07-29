@@ -1,0 +1,124 @@
+[
+  {
+    "id": 1,
+    "format": "Multiple Choice",
+    "question": "Which recycling number is most likely to actually get recycled at curbside?",
+    "choices": [
+      "#1 (PET)",
+      "#6 (PS / Styrofoam)",
+      "#7 (Other)",
+      "#3 (PVC)"
+    ],
+    "correctAnswer": "A",
+    "explanation": "PET (#1) and HDPE (#2) are the two plastics almost every curbside program accepts. Numbers #3, #6, and #7 are rarely accepted."
+  },
+  {
+    "id": 2,
+    "format": "True/False",
+    "question": "If you leave the cap ON a plastic bottle, it's more likely to actually get recycled than a loose cap tossed in separately.",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Loose caps are small and light, so they often fall through sorting machines and end up as litter. Twisting the cap back on keeps it with the bottle through the recycling process."
+  },
+  {
+    "id": 3,
+    "format": "Multiple Choice",
+    "question": "About how long does a plastic straw take to decompose in the environment?",
+    "choices": [
+      "1 year",
+      "20 years",
+      "200 years",
+      "1,000+ years"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Plastic straws are commonly estimated to take around 200 years to break down — and even then they don't fully disappear, they just turn into microplastics."
+  },
+  {
+    "id": 4,
+    "format": "True/False",
+    "question": "Styrofoam (polystyrene, #6) is accepted in most curbside recycling programs.",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": "B",
+    "explanation": "Styrofoam is almost never accepted curbside — it's lightweight, breaks apart easily, and isn't worth much to recyclers, so most programs skip it entirely."
+  },
+  {
+    "id": 5,
+    "format": "Multiple Choice",
+    "question": "What is a \"microplastic\"?",
+    "choices": [
+      "A tiny reusable plastic item",
+      "A small plastic fragment broken down from a larger piece of plastic",
+      "A type of biodegradable plastic",
+      "A type of glass"
+    ],
+    "correctAnswer": "B",
+    "explanation": "Microplastics form when larger plastic items break down from sunlight, heat, or wear into tiny fragments — small enough to end up in water, soil, and even our bodies."
+  },
+  {
+    "id": 6,
+    "format": "True/False",
+    "question": "Bottled water has been found to contain more microplastic particles on average than tap water.",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Multiple studies have found bottled water tends to contain more microplastic particles than tap water — one more reason a reusable bottle is a solid swap."
+  },
+  {
+    "id": 7,
+    "format": "Multiple Choice",
+    "question": "Which of these is generally the LEAST likely to get recycled curbside?",
+    "choices": [
+      "Milk jug (HDPE #2)",
+      "Water bottle (PET #1)",
+      "Chip bag (multilayer film, #7)",
+      "Detergent bottle (HDPE #2)"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chip bags are made of multiple layers of different materials fused together, which makes them extremely hard to recycle through normal programs."
+  },
+  {
+    "id": 8,
+    "format": "Multiple Choice",
+    "question": "About how long does a plastic water bottle (PET) take to decompose in the environment?",
+    "choices": [
+      "50 years",
+      "450 years",
+      "5 years",
+      "10,000 years"
+    ],
+    "correctAnswer": "B",
+    "explanation": "PET bottles are commonly estimated to take around 450 years to fully break down — far longer than a lifetime."
+  },
+  {
+    "id": 9,
+    "format": "True/False",
+    "question": "You should always cut plastic six-pack rings before throwing them away, even if you're not sure they'll be recycled.",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Six-pack rings are notorious for trapping and injuring birds and marine animals. Cutting every loop takes a few seconds and removes that risk."
+  },
+  {
+    "id": 10,
+    "format": "Multiple Choice",
+    "question": "What's usually the best FIRST step for reducing your plastic waste?",
+    "choices": [
+      "Recycle everything you can",
+      "Reduce or avoid single-use plastic in the first place",
+      "Only buy plastic labeled \"recyclable\"",
+      "Burn plastic waste at home"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The classic order is Reduce, Reuse, Recycle — in that order. Avoiding single-use plastic in the first place prevents more waste than recycling ever can, and burning plastic at home releases toxic fumes."
+  }
+]

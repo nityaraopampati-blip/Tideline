@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A6670D02BC84DB8FCF7A550 /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451C20FF9E28251F997AA7D /* QuizQuestion.swift */; };
+		279C4834916EC0F7E415E689 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A852E8E33771EE4F080F7B /* UserProfile.swift */; };
+		2B9018A0F6D44B35A1FEA3A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372EACAE72853337EB42DDB6 /* ContentView.swift */; };
+		2DE4B5A8E6AB50D7831F3F44 /* PlasticItemLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1381D6641358F3FC87CCB1 /* PlasticItemLibraryTests.swift */; };
+		492DC06986CE6FE06402BA4F /* ScanHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0DA7C4B1969771119AF53B /* ScanHistoryEntry.swift */; };
+		64A1B6B42D9EDA9F516AF62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECFE2DB67AA04A4C2E008A9 /* Assets.xcassets */; };
+		6790CE9826F7A5B18A34CA41 /* QuizQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 21BD8267122F8C1B8496FD43 /* QuizQuestions.json */; };
+		7930741A89FB337D957FD7C8 /* PlasticItems.json in Resources */ = {isa = PBXBuildFile; fileRef = D564943D015013851A7AEDDE /* PlasticItems.json */; };
+		7E8233CC501B9063B60A74D2 /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCC984B9FBE5F232D9BDA4 /* QuizResult.swift */; };
+		82BF8B4B244B4DCB9D352A62 /* PlasticItemLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209147DEB9B84E69CA1A9CA0 /* PlasticItemLibrary.swift */; };
+		BA7EF90400D49A4A590B4679 /* TidelineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B47322740FB514A7C79821 /* TidelineApp.swift */; };
+		D0509DD972F5A7240CFDC58C /* PlasticItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D001E7A28681279DE437EE4 /* PlasticItem.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4C437FEF86899D8CD4A100AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55FE4C66AEA69552EB8BB499 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 248A90917FDCA68929811FFF;
+			remoteInfo = Tideline;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0451C20FF9E28251F997AA7D /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
+		04EDE6604DAEF330B511B71E /* Tideline.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Tideline.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C0DA7C4B1969771119AF53B /* ScanHistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryEntry.swift; sourceTree = "<group>"; };
+		209147DEB9B84E69CA1A9CA0 /* PlasticItemLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticItemLibrary.swift; sourceTree = "<group>"; };
+		21BD8267122F8C1B8496FD43 /* QuizQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizQuestions.json; sourceTree = "<group>"; };
+		36A852E8E33771EE4F080F7B /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		372EACAE72853337EB42DDB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		40DCC984B9FBE5F232D9BDA4 /* QuizResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResult.swift; sourceTree = "<group>"; };
+		6B1381D6641358F3FC87CCB1 /* PlasticItemLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticItemLibraryTests.swift; sourceTree = "<group>"; };
+		825C81C3946EA8D6843E9B0F /* TidelineTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TidelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D001E7A28681279DE437EE4 /* PlasticItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticItem.swift; sourceTree = "<group>"; };
+		CECFE2DB67AA04A4C2E008A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4B47322740FB514A7C79821 /* TidelineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidelineApp.swift; sourceTree = "<group>"; };
+		D564943D015013851A7AEDDE /* PlasticItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlasticItems.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1D19CD131375BA58DE51136E = {
+			isa = PBXGroup;
+			children = (
+				E2078C27EAAF79B9C5997D85 /* Tideline */,
+				2BFBF465E50FA6057033A4B8 /* TidelineTests */,
+				87818DE5B00D5AF85ACDEAC5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		29DB914DD21C0E40D6D4DC32 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				372EACAE72853337EB42DDB6 /* ContentView.swift */,
+				D4B47322740FB514A7C79821 /* TidelineApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2BFBF465E50FA6057033A4B8 /* TidelineTests */ = {
+			isa = PBXGroup;
+			children = (
+				6B1381D6641358F3FC87CCB1 /* PlasticItemLibraryTests.swift */,
+			);
+			path = TidelineTests;
+			sourceTree = "<group>";
+		};
+		505821C80ACCDBFF24083D78 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				209147DEB9B84E69CA1A9CA0 /* PlasticItemLibrary.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		87818DE5B00D5AF85ACDEAC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04EDE6604DAEF330B511B71E /* Tideline.app */,
+				825C81C3946EA8D6843E9B0F /* TidelineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7049EEAC1FBE7BF5509374F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D001E7A28681279DE437EE4 /* PlasticItem.swift */,
+				0451C20FF9E28251F997AA7D /* QuizQuestion.swift */,
+				40DCC984B9FBE5F232D9BDA4 /* QuizResult.swift */,
+				0C0DA7C4B1969771119AF53B /* ScanHistoryEntry.swift */,
+				36A852E8E33771EE4F080F7B /* UserProfile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E13E1F5B7E3691C73AE1A6A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D564943D015013851A7AEDDE /* PlasticItems.json */,
+				21BD8267122F8C1B8496FD43 /* QuizQuestions.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E2078C27EAAF79B9C5997D85 /* Tideline */ = {
+			isa = PBXGroup;
+			children = (
+				CECFE2DB67AA04A4C2E008A9 /* Assets.xcassets */,
+				29DB914DD21C0E40D6D4DC32 /* App */,
+				C7049EEAC1FBE7BF5509374F /* Models */,
+				E13E1F5B7E3691C73AE1A6A7 /* Resources */,
+				505821C80ACCDBFF24083D78 /* Services */,
+			);
+			path = Tideline;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		248A90917FDCA68929811FFF /* Tideline */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E29A743E4310EB588D607E9A /* Build configuration list for PBXNativeTarget "Tideline" */;
+			buildPhases = (
+				C45D16DBB91E216FDE249967 /* Sources */,
+				7AE3D9E67525879A11A88C2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tideline;
+			packageProductDependencies = (
+			);
+			productName = Tideline;
+			productReference = 04EDE6604DAEF330B511B71E /* Tideline.app */;
+			productType = "com.apple.product-type.application";
+		};
+		47C909B43BD8DDCDB10AC46F /* TidelineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFC54B7349043B75E6F52C10 /* Build configuration list for PBXNativeTarget "TidelineTests" */;
+			buildPhases = (
+				2BF9FF8AAD5B76782BDFD7CC /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68773EF1D41CBFFA8B7BEC42 /* PBXTargetDependency */,
+			);
+			name = TidelineTests;
+			packageProductDependencies = (
+			);
+			productName = TidelineTests;
+			productReference = 825C81C3946EA8D6843E9B0F /* TidelineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		55FE4C66AEA69552EB8BB499 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					248A90917FDCA68929811FFF = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					47C909B43BD8DDCDB10AC46F = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2C2F453B896293C59B358396 /* Build configuration list for PBXProject "Tideline" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 1D19CD131375BA58DE51136E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 87818DE5B00D5AF85ACDEAC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				248A90917FDCA68929811FFF /* Tideline */,
+				47C909B43BD8DDCDB10AC46F /* TidelineTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AE3D9E67525879A11A88C2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64A1B6B42D9EDA9F516AF62D /* Assets.xcassets in Resources */,
+				7930741A89FB337D957FD7C8 /* PlasticItems.json in Resources */,
+				6790CE9826F7A5B18A34CA41 /* QuizQuestions.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2BF9FF8AAD5B76782BDFD7CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DE4B5A8E6AB50D7831F3F44 /* PlasticItemLibraryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45D16DBB91E216FDE249967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B9018A0F6D44B35A1FEA3A5 /* ContentView.swift in Sources */,
+				D0509DD972F5A7240CFDC58C /* PlasticItem.swift in Sources */,
+				82BF8B4B244B4DCB9D352A62 /* PlasticItemLibrary.swift in Sources */,
+				0A6670D02BC84DB8FCF7A550 /* QuizQuestion.swift in Sources */,
+				7E8233CC501B9063B60A74D2 /* QuizResult.swift in Sources */,
+				492DC06986CE6FE06402BA4F /* ScanHistoryEntry.swift in Sources */,
+				BA7EF90400D49A4A590B4679 /* TidelineApp.swift in Sources */,
+				279C4834916EC0F7E415E689 /* UserProfile.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		68773EF1D41CBFFA8B7BEC42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 248A90917FDCA68929811FFF /* Tideline */;
+			targetProxy = 4C437FEF86899D8CD4A100AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		545F901B1356FD9499E7A3E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5E13D652B73163279C253CB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tideline.app.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tideline.app/Tideline";
+			};
+			name = Debug;
+		};
+		693E68AA4C8E779E849F7EB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = "Generated/Tideline-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tideline.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8A7365A9F1007C2F0F4C25C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tideline.app.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tideline.app/Tideline";
+			};
+			name = Release;
+		};
+		E5CC119DA2EB2AD3398A95F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EFDCAC2A1CFF037C5228CB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = "Generated/Tideline-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tideline.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C2F453B896293C59B358396 /* Build configuration list for PBXProject "Tideline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5CC119DA2EB2AD3398A95F9 /* Debug */,
+				545F901B1356FD9499E7A3E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CFC54B7349043B75E6F52C10 /* Build configuration list for PBXNativeTarget "TidelineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E13D652B73163279C253CB1 /* Debug */,
+				8A7365A9F1007C2F0F4C25C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E29A743E4310EB588D607E9A /* Build configuration list for PBXNativeTarget "Tideline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFDCAC2A1CFF037C5228CB9E /* Debug */,
+				693E68AA4C8E779E849F7EB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 55FE4C66AEA69552EB8BB499 /* Project object */;
+}

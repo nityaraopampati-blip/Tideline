@@ -1,0 +1,13 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+
+# XcodeGen generates these from project.yml — no need to track them
+Generated/
+
+# CocoaPods / SPM caches (not used yet, but harmless to ignore)
+.build/
+.swiftpm/
