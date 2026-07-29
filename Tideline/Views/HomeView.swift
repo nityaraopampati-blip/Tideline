@@ -32,17 +32,17 @@ struct HomeView: View {
                         actionCard(
                             destination: .barcode, icon: "barcode.viewfinder",
                             title: "Scan Barcode", subtitle: "Point your camera at a barcode",
-                            tint: .blue
+                            tint: TideTheme.tide
                         )
                         actionCard(
                             destination: .photo, icon: "camera.fill",
                             title: "Take Photo", subtitle: "Snap a photo of an item",
-                            tint: .purple
+                            tint: TideTheme.coral
                         )
                         actionCard(
                             destination: .search, icon: "magnifyingglass",
                             title: "Search by Name", subtitle: "Type in what you're holding",
-                            tint: .orange
+                            tint: Color(hex: 0xE8A93B)
                         )
                     }
 
@@ -52,13 +52,7 @@ struct HomeView: View {
                 }
                 .padding(20)
             }
-            .background(
-                LinearGradient(
-                    colors: [Color.green.opacity(0.12), Color(.systemBackground)],
-                    startPoint: .top, endPoint: .bottom
-                )
-                .ignoresSafeArea()
-            )
+            .background(TideTheme.background.ignoresSafeArea())
             .navigationBarHidden(true)
             .navigationDestination(for: HomeDestination.self) { destination in
                 switch destination {
@@ -81,12 +75,10 @@ struct HomeView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("HOME")
-                .font(.caption.weight(.bold))
-                .tracking(1.5)
-                .foregroundStyle(.green)
+            EyebrowText(text: "Home")
             Text(greeting)
-                .font(.largeTitle.bold())
+                .font(.system(size: 30, weight: .bold, design: .rounded))
+                .foregroundStyle(TideTheme.ink)
         }
         .padding(.top, 8)
     }
@@ -103,26 +95,31 @@ struct HomeView: View {
                         .foregroundStyle(tint)
                 }
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(title).font(.headline)
-                    Text(subtitle).font(.subheadline).foregroundStyle(.secondary)
+                    Text(title)
+                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .foregroundStyle(TideTheme.ink)
+                    Text(subtitle)
+                        .font(.system(size: 13))
+                        .foregroundStyle(TideTheme.inkSoft)
                 }
                 Spacer()
                 Image(systemName: "chevron.right")
                     .font(.footnote.weight(.semibold))
-                    .foregroundStyle(.tertiary)
+                    .foregroundStyle(TideTheme.inkSoft.opacity(0.6))
             }
             .padding(16)
             .background(Color(.secondarySystemGroupedBackground))
             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            .shadow(color: .black.opacity(0.05), radius: 8, y: 3)
+            .shadow(color: TideTheme.cardShadow, radius: 8, y: 3)
         }
-        .buttonStyle(PressableCardStyle())
+        .buttonStyle(TidePressableStyle())
     }
 
     private var recentSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Recent Scans")
-                .font(.title3.bold())
+                .font(.system(size: 18, weight: .semibold, design: .rounded))
+                .foregroundStyle(TideTheme.ink)
 
             VStack(spacing: 10) {
                 ForEach(recentScans) { entry in
@@ -132,19 +129,10 @@ struct HomeView: View {
                             .background(Color(.secondarySystemGroupedBackground))
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                     }
-                    .buttonStyle(PressableCardStyle())
+                    .buttonStyle(TidePressableStyle())
                 }
             }
         }
-    }
-}
-
-/// Slight scale-down on press so cards feel tactile and responsive to tap.
-private struct PressableCardStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .scaleEffect(configuration.isPressed ? 0.97 : 1)
-            .animation(.easeOut(duration: 0.15), value: configuration.isPressed)
     }
 }
 
@@ -161,14 +149,20 @@ struct HistoryRow: View {
     var body: some View {
         HStack {
             Image(systemName: icon(for: entry.scanMethod))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(TideTheme.tide)
                 .frame(width: 24)
             VStack(alignment: .leading, spacing: 2) {
                 Text(entry.itemName)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundStyle(TideTheme.ink)
                 Text(entry.timestamp.formatted(date: .abbreviated, time: .shortened))
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .font(.system(size: 11))
+                    .foregroundStyle(TideTheme.inkSoft)
             }
+            Spacer()
+            Image(systemName: "chevron.right")
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(TideTheme.inkSoft.opacity(0.5))
         }
     }
 

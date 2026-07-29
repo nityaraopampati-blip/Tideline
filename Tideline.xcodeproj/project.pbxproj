@@ -21,6 +21,7 @@
 		39A354B0E8070AF122C8F4A5 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9D991C32EB4C924C2B4D3 /* ResultView.swift */; };
 		492DC06986CE6FE06402BA4F /* ScanHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0DA7C4B1969771119AF53B /* ScanHistoryEntry.swift */; };
 		50FC47B080C7A1C80DA7C6AE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0512492A5A34F22D7BA6D58D /* AppState.swift */; };
+		52AE88E26B422C54A09734C7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86233459F68C66174B615F61 /* Theme.swift */; };
 		5D27834810F21F7E02C3E945 /* PhotoScanCapability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675EB36C0CAA05B2AA14961 /* PhotoScanCapability.swift */; };
 		645049F915266FA9B46CA9C6 /* AIEstimateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF6AE4C4B80B32ABC705DD /* AIEstimateService.swift */; };
 		64A1B6B42D9EDA9F516AF62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECFE2DB67AA04A4C2E008A9 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		7D73FFCFEFACADC055E7B0EA /* CameraCaptureRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureRepresentable.swift; sourceTree = "<group>"; };
 		80AD25481D1C4B79C56E97C9 /* PhotoScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScanView.swift; sourceTree = "<group>"; };
 		825C81C3946EA8D6843E9B0F /* TidelineTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TidelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86233459F68C66174B615F61 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		89F9D991C32EB4C924C2B4D3 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		8C0BEDE45A9F83A4DD1A5D11 /* BarcodeScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanView.swift; sourceTree = "<group>"; };
 		9675EB36C0CAA05B2AA14961 /* PhotoScanCapability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScanCapability.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				0512492A5A34F22D7BA6D58D /* AppState.swift */,
 				372EACAE72853337EB42DDB6 /* ContentView.swift */,
+				86233459F68C66174B615F61 /* Theme.swift */,
 				D4B47322740FB514A7C79821 /* TidelineApp.swift */,
 			);
 			path = App;
@@ -314,6 +317,7 @@
 				39A354B0E8070AF122C8F4A5 /* ResultView.swift in Sources */,
 				492DC06986CE6FE06402BA4F /* ScanHistoryEntry.swift in Sources */,
 				C2CB1946CFAF754B68B1F416 /* SearchView.swift in Sources */,
+				52AE88E26B422C54A09734C7 /* Theme.swift in Sources */,
 				BA7EF90400D49A4A590B4679 /* TidelineApp.swift in Sources */,
 				279C4834916EC0F7E415E689 /* UserProfile.swift in Sources */,
 				28C5C9AE07031BBBEA49CF8C /* WelcomeView.swift in Sources */,

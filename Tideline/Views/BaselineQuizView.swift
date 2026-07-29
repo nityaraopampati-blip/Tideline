@@ -25,12 +25,14 @@ struct BaselineQuizView: View {
                 }
             }
             .padding()
+            .background(TideTheme.background.ignoresSafeArea())
             .navigationTitle("Quick Quiz")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 if !showFinishedAcknowledgment {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Skip") { showSkipConfirmation = true }
+                            .foregroundStyle(TideTheme.inkSoft)
                     }
                 }
             }
@@ -51,12 +53,14 @@ struct BaselineQuizView: View {
 
     private var quizContent: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Question \(currentIndex + 1) of \(questions.count)")
-                .font(.caption)
-                .foregroundStyle(.secondary)
+            progressRow
 
-            Text(currentQuestion.question)
-                .font(.title3.bold())
+            TideCard(padding: 22) {
+                Text(currentQuestion.question)
+                    .font(.system(size: 17, weight: .semibold, design: .rounded))
+                    .foregroundStyle(TideTheme.ink)
+                    .frame(maxWidth: .infinity, minHeight: 90, alignment: .leading)
+            }
 
             VStack(spacing: 12) {
                 ForEach(currentQuestion.choices, id: \.self) { choice in
@@ -74,10 +78,26 @@ struct BaselineQuizView: View {
                 Button(currentIndex == questions.count - 1 ? "Finish" : "Next Question") {
                     advance()
                 }
-                .buttonStyle(.borderedProminent)
-                .frame(maxWidth: .infinity)
+                .buttonStyle(TideCTAButtonStyle())
             }
         }
+    }
+
+    private var progressRow: some View {
+        HStack(spacing: 5) {
+            ForEach(0..<questions.count, id: \.self) { index in
+                Capsule()
+                    .fill(segmentColor(for: index))
+                    .frame(height: 5)
+            }
+        }
+        .padding(.top, 4)
+    }
+
+    private func segmentColor(for index: Int) -> Color {
+        if index < currentIndex { return TideTheme.seafoam }
+        if index == currentIndex { return TideTheme.tide }
+        return TideTheme.line
     }
 
     private func choiceButton(_ choice: String) -> some View {
@@ -92,41 +112,43 @@ struct BaselineQuizView: View {
         } label: {
             HStack {
                 Text(choice)
+                    .font(.system(size: 14, weight: .medium))
                 Spacer()
                 if selectedChoice != nil && isCorrectChoice {
-                    Image(systemName: "checkmark.circle.fill").foregroundStyle(.green)
+                    Image(systemName: "checkmark.circle.fill").foregroundStyle(TideTheme.tide)
                 } else if isSelected {
-                    Image(systemName: "xmark.circle.fill").foregroundStyle(.red)
+                    Image(systemName: "xmark.circle.fill").foregroundStyle(TideTheme.coral)
                 }
             }
             .padding()
             .background(choiceBackground(isSelected: isSelected, isCorrectChoice: isCorrectChoice))
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
         }
-        .foregroundStyle(.primary)
+        .foregroundStyle(TideTheme.ink)
         .disabled(selectedChoice != nil)
+        .buttonStyle(TidePressableStyle())
     }
 
     private func choiceBackground(isSelected: Bool, isCorrectChoice: Bool) -> Color {
-        guard selectedChoice != nil else { return Color(.secondarySystemBackground) }
-        if isCorrectChoice { return Color.green.opacity(0.15) }
-        if isSelected { return Color.red.opacity(0.15) }
-        return Color(.secondarySystemBackground)
+        guard selectedChoice != nil else { return TideTheme.surface2 }
+        if isCorrectChoice { return TideTheme.seafoamLight }
+        if isSelected { return TideTheme.coralLight }
+        return TideTheme.surface2
     }
 
     private func explanationView(selected: String) -> some View {
         let wasCorrect = letterForChoice(selected) == currentQuestion.correctAnswer
         return VStack(alignment: .leading, spacing: 6) {
             Text(wasCorrect ? "Correct!" : "Not quite")
-                .font(.subheadline.bold())
-                .foregroundStyle(wasCorrect ? .green : .orange)
+                .font(.system(size: 14, weight: .bold))
+                .foregroundStyle(wasCorrect ? TideTheme.deep : TideTheme.coral)
             Text(currentQuestion.explanation)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .font(.system(size: 13))
+                .foregroundStyle(TideTheme.inkSoft)
         }
         .padding()
-        .background(Color(.tertiarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .background(wasCorrect ? TideTheme.seafoamLight : TideTheme.coralLight.opacity(0.5))
+        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
     }
 
     private func letterForChoice(_ choice: String) -> String {
@@ -165,18 +187,18 @@ struct BaselineQuizView: View {
             Spacer()
             Image(systemName: "checkmark.seal.fill")
                 .font(.system(size: 56))
-                .foregroundStyle(.green)
+                .foregroundStyle(TideTheme.tide)
             Text(wasSkipped ? "No worries — you can jump right in!" : "Quiz done — thanks for learning with Tideline!")
-                .font(.title3.bold())
+                .font(.system(size: 18, weight: .bold, design: .rounded))
+                .foregroundStyle(TideTheme.ink)
                 .multilineTextAlignment(.center)
             if let finalScore {
                 Text("You scored \(finalScore) out of \(questions.count).")
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(TideTheme.inkSoft)
             }
             Spacer()
             Button("Continue to Tideline") { confirmFinish() }
-                .buttonStyle(.borderedProminent)
-                .frame(maxWidth: .infinity)
+                .buttonStyle(TideCTAButtonStyle())
         }
         .padding()
     }

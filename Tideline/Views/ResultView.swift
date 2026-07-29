@@ -5,64 +5,233 @@ struct ResultView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                header
-
-                infoSection(title: "Material / Recycling Code", value: item.materialCode, icon: "number")
-                infoSection(title: "Recyclability", value: item.recyclability, icon: "arrow.3.trianglepath")
-                infoSection(title: "Reusable Alternative(s)", value: item.alternatives, icon: "leaf.fill")
-                infoSection(title: "Where to Get an Alternative", value: item.whereToGetAlternative, icon: "cart.fill")
-                infoSection(title: "Plastic Footprint", value: item.plasticFootprint, icon: "chart.bar.fill")
-                infoSection(title: "Microplastic Risk", value: item.microplasticRisk, icon: "drop.fill")
-                infoSection(title: "Decomposition Time", value: item.decompositionTime, icon: "clock.fill")
-                infoSection(title: "Environmental Impact", value: item.environmentalImpact, icon: "globe.americas.fill")
-                infoSection(title: "Best Action", value: item.bestAction, icon: "checkmark.seal.fill")
-                infoSection(title: "Practical Tip", value: item.practicalTip, icon: "lightbulb.fill")
-
+            VStack(alignment: .leading, spacing: 16) {
+                recyclabilityBanner
+                specimenCard
+                factBox
+                actionBox
+                alternativeCard
                 acknowledgment
                 sourceNote
             }
             .padding()
         }
+        .background(TideTheme.background.ignoresSafeArea())
         .navigationTitle(item.name)
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private var header: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(item.name)
-                .font(.title2.bold())
+    // MARK: - Banner
+
+    private var recyclabilityTone: (gradient: [Color], label: String) {
+        let level = Self.leadingWord(in: item.recyclability)?.lowercased()
+        switch level {
+        case "high": return ([TideTheme.seafoam, TideTheme.deep], "Highly Recyclable")
+        case "medium": return ([Color(hex: 0xFFCA28), Color(hex: 0xE8A93B)], "Sometimes Recyclable")
+        case "low": return ([TideTheme.coral, Color(hex: 0xC0452A)], "Rarely Recyclable")
+        default: return ([TideTheme.seafoam, TideTheme.deep], "Recyclability")
         }
     }
 
-    private func infoSection(title: String, value: String, icon: String) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Label(title, systemImage: icon)
-                .font(.subheadline.bold())
-                .foregroundStyle(.green)
-            Text(value.isEmpty ? "Not available" : value)
-                .font(.body)
-                .foregroundStyle(.primary)
+    private var recyclabilityBanner: some View {
+        HStack(spacing: 14) {
+            Image(systemName: bannerIcon)
+                .font(.system(size: 30))
+                .foregroundStyle(.white)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(recyclabilityTone.label)
+                    .font(.system(size: 17, weight: .bold, design: .rounded))
+                Text("Material: \(item.materialCode)")
+                    .font(.system(size: 11, weight: .semibold))
+                    .textCase(.uppercase)
+                    .tracking(0.5)
+                    .opacity(0.92)
+            }
+            Spacer()
         }
+        .foregroundStyle(.white)
+        .padding(16)
+        .background(
+            LinearGradient(colors: recyclabilityTone.gradient, startPoint: .topLeading, endPoint: .bottomTrailing)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+    }
+
+    private var bannerIcon: String {
+        switch Self.leadingWord(in: item.recyclability)?.lowercased() {
+        case "high": return "checkmark.circle.fill"
+        case "medium": return "exclamationmark.circle.fill"
+        case "low": return "xmark.circle.fill"
+        default: return "arrow.3.trianglepath"
+        }
+    }
+
+    // MARK: - Specimen card (name + quick facts)
+
+    private var specimenCard: some View {
+        TideCard(padding: 18) {
+            VStack(alignment: .leading, spacing: 14) {
+                HStack(spacing: 12) {
+                    ZStack {
+                        Circle().fill(TideTheme.surface2).frame(width: 54, height: 54)
+                        Image(systemName: "leaf.fill")
+                            .font(.system(size: 22))
+                            .foregroundStyle(TideTheme.tide)
+                    }
+                    Text(item.name)
+                        .font(.system(size: 19, weight: .semibold, design: .rounded))
+                        .foregroundStyle(TideTheme.ink)
+                }
+
+                HStack(spacing: 8) {
+                    quickFact(icon: "arrow.3.trianglepath", label: "Recyclability", value: Self.firstClause(of: item.recyclability))
+                    quickFact(icon: "drop.fill", label: "Microplastic Risk", value: Self.firstClause(of: item.microplasticRisk))
+                    quickFact(icon: "clock.fill", label: "Decomposition", value: item.decompositionTime)
+                }
+            }
+        }
+    }
+
+    private func quickFact(icon: String, label: String, value: String) -> some View {
+        VStack(spacing: 4) {
+            Image(systemName: icon)
+                .font(.system(size: 15))
+                .foregroundStyle(TideTheme.tide)
+            Text(label.uppercased())
+                .font(.system(size: 7.5, weight: .semibold))
+                .tracking(0.3)
+                .foregroundStyle(TideTheme.inkSoft)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+            Text(value)
+                .font(.system(size: 11.5, weight: .bold, design: .rounded))
+                .foregroundStyle(TideTheme.ink)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+                .minimumScaleFactor(0.8)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 4)
+        .background(Color(.systemBackground))
+        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(TideTheme.line, lineWidth: 1))
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+    }
+
+    // MARK: - Fact box (environmental impact)
+
+    private var factBox: some View {
+        HStack(alignment: .top, spacing: 10) {
+            Text("🌍").font(.system(size: 18))
+            Text(item.environmentalImpact.isEmpty ? "Not available" : item.environmentalImpact)
+                .font(.system(size: 13))
+                .foregroundStyle(Color(hex: 0x5A4415))
+                .lineSpacing(3)
+        }
+        .padding(14)
+        .background(TideTheme.sand)
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+    }
+
+    // MARK: - Action box (best action)
+
+    private var actionBox: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("BEST ACTION")
+                .font(.system(size: 10, weight: .bold))
+                .tracking(1.2)
+                .opacity(0.85)
+            Text(item.bestAction.isEmpty ? "Not available" : item.bestAction)
+                .font(.system(size: 15, weight: .semibold, design: .rounded))
+        }
+        .foregroundStyle(.white)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color(.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding(16)
+        .background(TideTheme.deep)
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+    }
+
+    // MARK: - Alternative card
+
+    private var alternativeCard: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text("Reusable Alternative")
+                    .font(.system(size: 13, weight: .bold, design: .rounded))
+                    .foregroundStyle(TideTheme.ink)
+                Spacer()
+                Text("BEST SWAP")
+                    .font(.system(size: 9, weight: .bold))
+                    .tracking(0.4)
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 9)
+                    .padding(.vertical, 3)
+                    .background(TideTheme.coral)
+                    .clipShape(Capsule())
+            }
+            Text(item.alternatives.isEmpty ? "Not available" : item.alternatives)
+                .font(.system(size: 13))
+                .foregroundStyle(TideTheme.ink)
+            if !item.whereToGetAlternative.isEmpty {
+                Text("Where to get it: \(item.whereToGetAlternative)")
+                    .font(.system(size: 11.5))
+                    .foregroundStyle(TideTheme.inkSoft)
+            }
+            if !item.practicalTip.isEmpty {
+                Divider().padding(.vertical, 2)
+                Label(item.practicalTip, systemImage: "lightbulb.fill")
+                    .font(.system(size: 11.5))
+                    .foregroundStyle(TideTheme.tide)
+            }
+        }
+        .padding(14)
+        .background(Color(.systemBackground))
+        .overlay(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .strokeBorder(TideTheme.seafoam, style: StrokeStyle(lineWidth: 1.5, dash: [5, 4]))
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 
     private var acknowledgment: some View {
         Text("Nice work checking that before tossing it!")
-            .font(.subheadline.bold())
-            .foregroundStyle(.green)
+            .font(.system(size: 14, weight: .bold, design: .rounded))
+            .foregroundStyle(TideTheme.deep)
             .frame(maxWidth: .infinity, alignment: .center)
-            .padding(.top, 8)
+            .padding(.top, 6)
     }
 
     private var sourceNote: some View {
         Text(item.source == "database" ? "From Tideline's verified database" : "AI-generated estimate")
             .font(.caption)
-            .foregroundStyle(.tertiary)
+            .foregroundStyle(TideTheme.inkSoft.opacity(0.7))
             .frame(maxWidth: .infinity, alignment: .center)
+    }
+
+    // MARK: - Parsing helpers
+
+    /// Our data fields commonly follow a "Level – detail" convention, e.g.
+    /// "High – PET is the most widely recycled...". Extracts "High".
+    private static func leadingWord(in text: String) -> String? {
+        let separators = [" – ", " - "]
+        for separator in separators {
+            if let range = text.range(of: separator) {
+                return String(text[..<range.lowerBound])
+            }
+        }
+        return text.split(separator: " ").first.map(String.init)
+    }
+
+    /// Extracts the short "Level" clause before the dash for compact display;
+    /// falls back to the full text if the field doesn't follow that pattern.
+    private static func firstClause(of text: String) -> String {
+        let separators = [" – ", " - "]
+        for separator in separators {
+            if let range = text.range(of: separator) {
+                return String(text[..<range.lowerBound]).trimmingCharacters(in: .whitespaces)
+            }
+        }
+        return text
     }
 }
 
