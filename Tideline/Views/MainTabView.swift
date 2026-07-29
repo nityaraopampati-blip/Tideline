@@ -7,6 +7,8 @@ struct MainTabView: View {
                 .tabItem { Label("Home", systemImage: "house.fill") }
             ScanView()
                 .tabItem { Label("Scan", systemImage: "camera.viewfinder") }
+            LearnHubView()
+                .tabItem { Label("Learn", systemImage: "gamecontroller.fill") }
             HistoryView()
                 .tabItem { Label("History", systemImage: "clock.fill") }
             ProfileView()

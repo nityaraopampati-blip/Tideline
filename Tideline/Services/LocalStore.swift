@@ -13,6 +13,13 @@ final class LocalStore {
         static let quizResults = "tideline.quizResults"
         static let scanHistory = "tideline.scanHistory"
         static let hasPromptedBaselineQuiz = "tideline.hasPromptedBaselineQuiz"
+        static let gameBestScores = "tideline.gameBestScores"
+    }
+
+    enum GameID: String {
+        case trueFalseQuiz
+        case sortThePlastic
+        case recycleRunner
     }
 
     var profile: UserProfile? {
@@ -39,11 +46,28 @@ final class LocalStore {
         scanHistory.insert(entry, at: 0)
     }
 
+    private var gameBestScores: [String: Int] {
+        get { decode(Key.gameBestScores) ?? [:] }
+        set { encode(newValue, forKey: Key.gameBestScores) }
+    }
+
+    func bestScore(for game: GameID) -> Int? {
+        gameBestScores[game.rawValue]
+    }
+
+    /// Records a score, keeping only the best one seen so far.
+    func recordScore(_ score: Int, for game: GameID) {
+        let current = gameBestScores[game.rawValue] ?? Int.min
+        guard score > current else { return }
+        gameBestScores[game.rawValue] = score
+    }
+
     func signOut() {
         defaults.removeObject(forKey: Key.profile)
         defaults.removeObject(forKey: Key.quizResults)
         defaults.removeObject(forKey: Key.scanHistory)
         defaults.removeObject(forKey: Key.hasPromptedBaselineQuiz)
+        defaults.removeObject(forKey: Key.gameBestScores)
     }
 
     private func decode<T: Decodable>(_ key: String) -> T? {

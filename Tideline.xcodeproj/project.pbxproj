@@ -30,12 +30,19 @@
 		645049F915266FA9B46CA9C6 /* AIEstimateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF6AE4C4B80B32ABC705DD /* AIEstimateService.swift */; };
 		64A1B6B42D9EDA9F516AF62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECFE2DB67AA04A4C2E008A9 /* Assets.xcassets */; };
 		6790CE9826F7A5B18A34CA41 /* QuizQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 21BD8267122F8C1B8496FD43 /* QuizQuestions.json */; };
+		749D84C2FE05C4AAE6277760 /* SortThePlasticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05963725CCCE430D6651AE1 /* SortThePlasticView.swift */; };
 		7930741A89FB337D957FD7C8 /* PlasticItems.json in Resources */ = {isa = PBXBuildFile; fileRef = D564943D015013851A7AEDDE /* PlasticItems.json */; };
 		7E8233CC501B9063B60A74D2 /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DCC984B9FBE5F232D9BDA4 /* QuizResult.swift */; };
 		82BF8B4B244B4DCB9D352A62 /* PlasticItemLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209147DEB9B84E69CA1A9CA0 /* PlasticItemLibrary.swift */; };
+		87EEE7FB3A7D865E29DFB07D /* RecycleRunnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC333631A1AEB77E6996CA8 /* RecycleRunnerView.swift */; };
 		8B89036507905014991CA8EC /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D33CEE32CA258C55F0FCF /* HistoryView.swift */; };
 		923FAB78BF3FD672FFA508A1 /* CameraCaptureRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73FFCFEFACADC055E7B0EA /* CameraCaptureRepresentable.swift */; };
+		9B302D187AAE3C1E2C81A457 /* TrueFalseQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4681F6BDCB690719C64DBFA0 /* TrueFalseQuizView.swift */; };
+		AA81DF5578265EFD2B854C12 /* LearnHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499046E61EA8B5A2D9169F3 /* LearnHubView.swift */; };
+		B22213842CA04F670183F8F2 /* PlasticGoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4BCB80100B549447D01777 /* PlasticGoView.swift */; };
 		BA7EF90400D49A4A590B4679 /* TidelineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B47322740FB514A7C79821 /* TidelineApp.swift */; };
+		BBE3BAE69FC247DDB546B11D /* GameContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D97BB4F8A53B981F94FE /* GameContent.swift */; };
+		BDF25362F8FB06ED99E42555 /* TrueFalseQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD7D2C33E2BE68C6BB0829 /* TrueFalseQuestion.swift */; };
 		BE04A895B440F57BA60B14EE /* TideScoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCD9656FF6C87C86C9358F4 /* TideScoreCard.swift */; };
 		C2CB1946CFAF754B68B1F416 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ED4400CF986298762558CE /* SearchView.swift */; };
 		D0509DD972F5A7240CFDC58C /* PlasticItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D001E7A28681279DE437EE4 /* PlasticItem.swift */; };
@@ -66,13 +73,17 @@
 		1DA7E22308CB5E3F559C7DFE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		209147DEB9B84E69CA1A9CA0 /* PlasticItemLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticItemLibrary.swift; sourceTree = "<group>"; };
 		21BD8267122F8C1B8496FD43 /* QuizQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizQuestions.json; sourceTree = "<group>"; };
+		2FC333631A1AEB77E6996CA8 /* RecycleRunnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleRunnerView.swift; sourceTree = "<group>"; };
 		3303094EEB011942A6699555 /* PlasticLogSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticLogSection.swift; sourceTree = "<group>"; };
 		36A852E8E33771EE4F080F7B /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		372EACAE72853337EB42DDB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		40DCC984B9FBE5F232D9BDA4 /* QuizResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResult.swift; sourceTree = "<group>"; };
 		4469085BAA5EBF1071D48FA1 /* PhotoClassifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoClassifierService.swift; sourceTree = "<group>"; };
+		4681F6BDCB690719C64DBFA0 /* TrueFalseQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseQuizView.swift; sourceTree = "<group>"; };
+		4CAD7D2C33E2BE68C6BB0829 /* TrueFalseQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseQuestion.swift; sourceTree = "<group>"; };
 		56B8C0CAE6908686A565BE72 /* StatsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGrid.swift; sourceTree = "<group>"; };
 		62502BA574AEF99B9005BB65 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		6499046E61EA8B5A2D9169F3 /* LearnHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHubView.swift; sourceTree = "<group>"; };
 		6B1381D6641358F3FC87CCB1 /* PlasticItemLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticItemLibraryTests.swift; sourceTree = "<group>"; };
 		7D73FFCFEFACADC055E7B0EA /* CameraCaptureRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureRepresentable.swift; sourceTree = "<group>"; };
 		80AD25481D1C4B79C56E97C9 /* PhotoScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScanView.swift; sourceTree = "<group>"; };
@@ -86,6 +97,7 @@
 		AB0D33CEE32CA258C55F0FCF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		ACBF6AE4C4B80B32ABC705DD /* AIEstimateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIEstimateService.swift; sourceTree = "<group>"; };
 		BA7FD6685B119885BAFF7ADB /* ImpactStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactStats.swift; sourceTree = "<group>"; };
+		BEF8D97BB4F8A53B981F94FE /* GameContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameContent.swift; sourceTree = "<group>"; };
 		C129D977CF76533DB2967B00 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		C1ED4400CF986298762558CE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CECFE2DB67AA04A4C2E008A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +105,8 @@
 		D564943D015013851A7AEDDE /* PlasticItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlasticItems.json; sourceTree = "<group>"; };
 		D5673D237B1D608B09F6A7C1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D674DB3AB22D3452831C9DE4 /* BarcodeScannerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerRepresentable.swift; sourceTree = "<group>"; };
+		DD4BCB80100B549447D01777 /* PlasticGoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticGoView.swift; sourceTree = "<group>"; };
+		E05963725CCCE430D6651AE1 /* SortThePlasticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortThePlasticView.swift; sourceTree = "<group>"; };
 		EC1F965144E31ED92A81EA27 /* ScanActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanActionCard.swift; sourceTree = "<group>"; };
 		F2492B78416CEFDC4658573B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F319835947A1F11D098AF91D /* BarcodeLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeLookupService.swift; sourceTree = "<group>"; };
@@ -119,8 +133,21 @@
 				56B8C0CAE6908686A565BE72 /* StatsGrid.swift */,
 				9BCD9656FF6C87C86C9358F4 /* TideScoreCard.swift */,
 				D5673D237B1D608B09F6A7C1 /* WelcomeView.swift */,
+				18E6EEE6CA7ED272C80CD228 /* Games */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		18E6EEE6CA7ED272C80CD228 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				6499046E61EA8B5A2D9169F3 /* LearnHubView.swift */,
+				DD4BCB80100B549447D01777 /* PlasticGoView.swift */,
+				2FC333631A1AEB77E6996CA8 /* RecycleRunnerView.swift */,
+				E05963725CCCE430D6651AE1 /* SortThePlasticView.swift */,
+				4681F6BDCB690719C64DBFA0 /* TrueFalseQuizView.swift */,
+			);
+			path = Games;
 			sourceTree = "<group>";
 		};
 		1D19CD131375BA58DE51136E = {
@@ -156,6 +183,7 @@
 			children = (
 				ACBF6AE4C4B80B32ABC705DD /* AIEstimateService.swift */,
 				F319835947A1F11D098AF91D /* BarcodeLookupService.swift */,
+				BEF8D97BB4F8A53B981F94FE /* GameContent.swift */,
 				BA7FD6685B119885BAFF7ADB /* ImpactStats.swift */,
 				0F8F4DC0552D9FAC841CB0FC /* LocalStore.swift */,
 				4469085BAA5EBF1071D48FA1 /* PhotoClassifierService.swift */,
@@ -181,6 +209,7 @@
 				0451C20FF9E28251F997AA7D /* QuizQuestion.swift */,
 				40DCC984B9FBE5F232D9BDA4 /* QuizResult.swift */,
 				0C0DA7C4B1969771119AF53B /* ScanHistoryEntry.swift */,
+				4CAD7D2C33E2BE68C6BB0829 /* TrueFalseQuestion.swift */,
 				36A852E8E33771EE4F080F7B /* UserProfile.swift */,
 			);
 			path = Models;
@@ -320,29 +349,36 @@
 				E04EF09CF611D3D1A571C010 /* BaselineQuizView.swift in Sources */,
 				923FAB78BF3FD672FFA508A1 /* CameraCaptureRepresentable.swift in Sources */,
 				2B9018A0F6D44B35A1FEA3A5 /* ContentView.swift in Sources */,
+				BBE3BAE69FC247DDB546B11D /* GameContent.swift in Sources */,
 				8B89036507905014991CA8EC /* HistoryView.swift in Sources */,
 				D6820042ED92639B9A290B11 /* HomeView.swift in Sources */,
 				208B41D4FDB752FAD7989B03 /* ImpactStats.swift in Sources */,
+				AA81DF5578265EFD2B854C12 /* LearnHubView.swift in Sources */,
 				1CF289C0A0CDD37DE5B1330B /* LocalStore.swift in Sources */,
 				17E4992C77C7EC07AA251164 /* MainTabView.swift in Sources */,
 				328A3670982C550FBAC3984D /* PhotoClassifierService.swift in Sources */,
 				5D27834810F21F7E02C3E945 /* PhotoScanCapability.swift in Sources */,
 				28467FE257896FF3019C0A40 /* PhotoScanView.swift in Sources */,
+				B22213842CA04F670183F8F2 /* PlasticGoView.swift in Sources */,
 				D0509DD972F5A7240CFDC58C /* PlasticItem.swift in Sources */,
 				82BF8B4B244B4DCB9D352A62 /* PlasticItemLibrary.swift in Sources */,
 				00B7E516F0E47847A05586CC /* PlasticLogSection.swift in Sources */,
 				D22CDD54A2B4492D739ED9AB /* ProfileView.swift in Sources */,
 				0A6670D02BC84DB8FCF7A550 /* QuizQuestion.swift in Sources */,
 				7E8233CC501B9063B60A74D2 /* QuizResult.swift in Sources */,
+				87EEE7FB3A7D865E29DFB07D /* RecycleRunnerView.swift in Sources */,
 				39A354B0E8070AF122C8F4A5 /* ResultView.swift in Sources */,
 				4CB3CA472DB080A2F244252C /* ScanActionCard.swift in Sources */,
 				492DC06986CE6FE06402BA4F /* ScanHistoryEntry.swift in Sources */,
 				EA15B499E240D6784533B3D8 /* ScanView.swift in Sources */,
 				C2CB1946CFAF754B68B1F416 /* SearchView.swift in Sources */,
+				749D84C2FE05C4AAE6277760 /* SortThePlasticView.swift in Sources */,
 				3A483FD3F872CD4B00945411 /* StatsGrid.swift in Sources */,
 				52AE88E26B422C54A09734C7 /* Theme.swift in Sources */,
 				BE04A895B440F57BA60B14EE /* TideScoreCard.swift in Sources */,
 				BA7EF90400D49A4A590B4679 /* TidelineApp.swift in Sources */,
+				BDF25362F8FB06ED99E42555 /* TrueFalseQuestion.swift in Sources */,
+				9B302D187AAE3C1E2C81A457 /* TrueFalseQuizView.swift in Sources */,
 				279C4834916EC0F7E415E689 /* UserProfile.swift in Sources */,
 				28C5C9AE07031BBBEA49CF8C /* WelcomeView.swift in Sources */,
 			);

@@ -177,6 +177,14 @@ struct ResultView: View {
                     .font(.system(size: 11.5))
                     .foregroundStyle(TideTheme.inkSoft)
             }
+            if let shopURL = Self.shopSearchURL(for: item.alternatives) {
+                Link(destination: shopURL) {
+                    Label("Shop for this alternative", systemImage: "cart.fill")
+                        .font(.system(size: 12.5, weight: .semibold))
+                }
+                .foregroundStyle(TideTheme.tide)
+                .padding(.top, 2)
+            }
             if !item.practicalTip.isEmpty {
                 Divider().padding(.vertical, 2)
                 Label(item.practicalTip, systemImage: "lightbulb.fill")
@@ -232,6 +240,17 @@ struct ResultView: View {
             }
         }
         return text
+    }
+
+    /// Builds an Amazon search link for the alternative's name, rather than
+    /// guessing a specific product URL (which the data doesn't have and
+    /// could easily be wrong or dead).
+    private static func shopSearchURL(for alternativeText: String) -> URL? {
+        guard !alternativeText.isEmpty else { return nil }
+        guard let encoded = alternativeText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return nil
+        }
+        return URL(string: "https://www.amazon.com/s?k=\(encoded)")
     }
 }
 
