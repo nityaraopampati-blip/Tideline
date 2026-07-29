@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A6670D02BC84DB8FCF7A550 /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451C20FF9E28251F997AA7D /* QuizQuestion.swift */; };
+		0AB0754207DE7BE869A3047E /* BarcodeScannerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674DB3AB22D3452831C9DE4 /* BarcodeScannerRepresentable.swift */; };
 		17E4992C77C7EC07AA251164 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62502BA574AEF99B9005BB65 /* MainTabView.swift */; };
 		1B50374FB1654DACF2D585A2 /* BarcodeScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0BEDE45A9F83A4DD1A5D11 /* BarcodeScanView.swift */; };
 		1CF289C0A0CDD37DE5B1330B /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8F4DC0552D9FAC841CB0FC /* LocalStore.swift */; };
@@ -31,6 +32,7 @@
 		D22CDD54A2B4492D739ED9AB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA7E22308CB5E3F559C7DFE /* ProfileView.swift */; };
 		D6820042ED92639B9A290B11 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2492B78416CEFDC4658573B /* HomeView.swift */; };
 		E04EF09CF611D3D1A571C010 /* BaselineQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B902947F29410224CA309 /* BaselineQuizView.swift */; };
+		F068F6ACC67CA7D4632830D3 /* BarcodeLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F319835947A1F11D098AF91D /* BarcodeLookupService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,13 +71,16 @@
 		D4B47322740FB514A7C79821 /* TidelineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidelineApp.swift; sourceTree = "<group>"; };
 		D564943D015013851A7AEDDE /* PlasticItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlasticItems.json; sourceTree = "<group>"; };
 		D5673D237B1D608B09F6A7C1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		D674DB3AB22D3452831C9DE4 /* BarcodeScannerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerRepresentable.swift; sourceTree = "<group>"; };
 		F2492B78416CEFDC4658573B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F319835947A1F11D098AF91D /* BarcodeLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeLookupService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		077E8901401AF183444E362C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D674DB3AB22D3452831C9DE4 /* BarcodeScannerRepresentable.swift */,
 				8C0BEDE45A9F83A4DD1A5D11 /* BarcodeScanView.swift */,
 				146B902947F29410224CA309 /* BaselineQuizView.swift */,
 				AB0D33CEE32CA258C55F0FCF /* HistoryView.swift */,
@@ -120,6 +125,7 @@
 		505821C80ACCDBFF24083D78 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F319835947A1F11D098AF91D /* BarcodeLookupService.swift */,
 				0F8F4DC0552D9FAC841CB0FC /* LocalStore.swift */,
 				209147DEB9B84E69CA1A9CA0 /* PlasticItemLibrary.swift */,
 			);
@@ -274,7 +280,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				50FC47B080C7A1C80DA7C6AE /* AppState.swift in Sources */,
+				F068F6ACC67CA7D4632830D3 /* BarcodeLookupService.swift in Sources */,
 				1B50374FB1654DACF2D585A2 /* BarcodeScanView.swift in Sources */,
+				0AB0754207DE7BE869A3047E /* BarcodeScannerRepresentable.swift in Sources */,
 				E04EF09CF611D3D1A571C010 /* BaselineQuizView.swift in Sources */,
 				2B9018A0F6D44B35A1FEA3A5 /* ContentView.swift in Sources */,
 				8B89036507905014991CA8EC /* HistoryView.swift in Sources */,
