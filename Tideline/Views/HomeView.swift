@@ -2,9 +2,22 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var appState: AppState
+    @State private var selectedRange: LogRange = .week
 
     private var recentScans: [ScanHistoryEntry] {
         Array(appState.scanHistory.prefix(5))
+    }
+
+    private var tideScoreState: TideScoreState {
+        ImpactStats.tideScore(history: appState.scanHistory)
+    }
+
+    private var weeklySummary: WeeklySummary {
+        ImpactStats.weeklySummary(history: appState.scanHistory)
+    }
+
+    private var chartBuckets: [ChartBucket] {
+        ImpactStats.chartBuckets(history: appState.scanHistory, range: selectedRange)
     }
 
     private var greeting: String {
@@ -27,6 +40,12 @@ struct HomeView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 28) {
                     header
+
+                    TideScoreCard(state: tideScoreState)
+
+                    StatsGrid(summary: weeklySummary)
+
+                    PlasticLogSection(selectedRange: $selectedRange, buckets: chartBuckets)
 
                     VStack(spacing: 14) {
                         actionCard(

@@ -11,7 +11,8 @@
     "environmentalImpact": "Major contributor to ocean plastic; heavy use of fossil fuels and water in production",
     "bestAction": "Reuse a refillable bottle; recycle single-use bottles with the cap on",
     "practicalTip": "Refill at water fountains — many now have bottle-filling spouts",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 22
   },
   {
     "name": "Plastic straw",
@@ -25,7 +26,8 @@
     "environmentalImpact": "Common beach-cleanup item; can harm marine animals",
     "bestAction": "Skip the straw or bring a reusable one; treat single-use plastic as one-time use",
     "practicalTip": "If reused, rinse and dry it right away — it's only safe for about 1 day before bacteria builds up. A steel/glass straw lasts for years instead",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 2
   },
   {
     "name": "Plastic grocery bag",
@@ -39,7 +41,8 @@
     "environmentalImpact": "Major litter item; can choke wildlife and clog storm drains",
     "bestAction": "Bring reusable totes; drop clean plastic bags at store recycling bins, not curbside",
     "practicalTip": "Keep a foldable tote in your backpack or car so you always have one",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 5
   },
   {
     "name": "Sandwich / zip-top bag",
@@ -53,7 +56,8 @@
     "environmentalImpact": "Common litter; easily blown away, can be swallowed by animals",
     "bestAction": "Switch to reusable silicone or cloth bags for lunches",
     "practicalTip": "A clean bag (no raw meat) can be rinsed and reused several times before it tears",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 4
   },
   {
     "name": "Plastic utensils (fork/spoon/knife)",
@@ -67,7 +71,8 @@
     "environmentalImpact": "Common takeout waste that breaks into microplastics",
     "bestAction": "Say “no utensils needed” on takeout orders; carry a reusable set",
     "practicalTip": "Keep a compact bamboo utensil set in your bag or backpack",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 5
   },
   {
     "name": "Styrofoam cup / container",
@@ -81,7 +86,8 @@
     "environmentalImpact": "Styrene is a possible carcinogen; breaks apart easily and is hard to clean up",
     "bestAction": "Avoid foam entirely; bring your own cup or container",
     "practicalTip": "Many coffee shops give a small discount for bringing your own mug",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 4
   },
   {
     "name": "Plastic takeout container (clamshell)",
@@ -95,7 +101,8 @@
     "environmentalImpact": "Food residue often prevents recycling; common litter",
     "bestAction": "Rinse and recycle if accepted locally; reuse for food storage first",
     "practicalTip": "Wash a sturdy clamshell and reuse it for meal-prep storage before recycling",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 15
   },
   {
     "name": "Produce bag (thin plastic)",
@@ -109,7 +116,8 @@
     "environmentalImpact": "Litter; wildlife entanglement risk",
     "bestAction": "Skip the bag for produce with skins (bananas, oranges) or bring mesh bags",
     "practicalTip": "Keep reusable mesh bags folded inside your tote bags",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 2
   },
   {
     "name": "Bottle cap",
@@ -123,7 +131,8 @@
     "environmentalImpact": "Often swallowed by seabirds and marine animals",
     "bestAction": "Twist the cap back onto the bottle before recycling – never recycle it loose",
     "practicalTip": "Always keep caps ON bottles when you toss them in the bin",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 2
   },
   {
     "name": "Shampoo / detergent bottle",
@@ -137,7 +146,8 @@
     "environmentalImpact": "High-volume category of household plastic waste",
     "bestAction": "Recycle empty, rinsed bottles; consider bars or refills",
     "practicalTip": "Look for refill stations at natural grocery stores to reuse the same bottle for years",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 34
   },
   {
     "name": "Snack / chip bag",
@@ -151,7 +161,8 @@
     "environmentalImpact": "Mixed materials make it nearly impossible to recycle; common litter",
     "bestAction": "Buy snacks in bulk; use reusable pouches instead",
     "practicalTip": "Look for a nearby TerraCycle or store drop-off program for chip bags",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 6
   },
   {
     "name": "Cold drink cup",
@@ -165,7 +176,8 @@
     "environmentalImpact": "Common takeout/festival litter",
     "bestAction": "Bring your own tumbler; separate lid and straw before recycling the cup",
     "practicalTip": "Many drink shops offer a discount for bringing a reusable cup",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 15
   },
   {
     "name": "Coffee cup plastic lid",
@@ -179,7 +191,8 @@
     "environmentalImpact": "Common litter around cafes",
     "bestAction": "Skip the lid if drinking in-store; bring a reusable mug",
     "practicalTip": "Ask baristas to skip the lid if you're staying to drink there",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 3
   },
   {
     "name": "Plastic toothbrush",
@@ -193,7 +206,8 @@
     "environmentalImpact": "Billions discarded yearly worldwide, most end up in landfill or ocean",
     "bestAction": "Switch to a bamboo toothbrush; look for bristle mail-back recycling programs",
     "practicalTip": "Check the packaging — some brands offer toothbrush recycling by mail",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 12
   },
   {
     "name": "Disposable razor",
@@ -207,7 +221,8 @@
     "environmentalImpact": "Frequent landfill item; hard to separate materials for recycling",
     "bestAction": "Switch to a reusable safety razor",
     "practicalTip": "A metal safety razor blade lasts weeks and costs pennies to replace",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 10
   },
   {
     "name": "Six-pack rings",
@@ -221,7 +236,8 @@
     "environmentalImpact": "Notorious for entangling and injuring marine animals and birds",
     "bestAction": "Choose brands with cardboard rings; always cut plastic rings before disposal",
     "practicalTip": "If you ever find one, cut every loop before throwing it away to prevent animal entanglement",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 8
   },
   {
     "name": "Bubble wrap / plastic packaging",
@@ -235,7 +251,8 @@
     "environmentalImpact": "Rising fast with e-commerce growth",
     "bestAction": "Reuse for your own packages before recycling at store drop-off",
     "practicalTip": "Save bubble wrap in a drawer — perfect for your next shipped gift or move",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 10
   },
   {
     "name": "Plastic milk jug",
@@ -249,7 +266,8 @@
     "environmentalImpact": "High volume, but also a high recycling rate compared to other plastics",
     "bestAction": "Recycle empty, rinsed jugs; look for local glass return programs",
     "practicalTip": "Rinse the jug so leftover milk doesn't contaminate the recycling batch",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 40
   },
   {
     "name": "Yogurt cup",
@@ -263,7 +281,8 @@
     "environmentalImpact": "High volume of small containers, often skipped due to size/food residue",
     "bestAction": "Rinse and check local recycling rules; buy larger tubs to cut down on cups",
     "practicalTip": "A big tub of yogurt makes far less plastic waste per serving than single cups",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 14
   },
   {
     "name": "Cleaning product bottle",
@@ -277,6 +296,7 @@
     "environmentalImpact": "High-volume household waste category",
     "bestAction": "Refill instead of rebuying; recycle if switching brands",
     "practicalTip": "Keep one sturdy spray bottle and refill it with concentrate instead of buying new",
-    "source": "database"
+    "source": "database",
+    "typicalWeightGrams": 30
   }
 ]
