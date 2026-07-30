@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BaselineQuizView: View {
     @EnvironmentObject private var appState: AppState
+    @Environment(\.dismiss) private var dismiss
 
     private let questions = PlasticItemLibrary.shared.quizQuestions
     @State private var currentIndex = 0
@@ -180,6 +181,7 @@ struct BaselineQuizView: View {
         } else {
             appState.recordBaselineQuiz(score: score, totalQuestions: questions.count)
         }
+        dismiss()
     }
 
     private var finishedView: some View {

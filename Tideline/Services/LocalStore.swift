@@ -16,22 +16,6 @@ final class LocalStore {
         static let gameBestScores = "tideline.gameBestScores"
         static let levelState = "tideline.levelState"
         static let challengeProgress = "tideline.challengeProgress"
-        static let archivedAccounts = "tideline.archivedAccounts"
-    }
-
-    /// Everything that belongs to one account, bundled up so it can be set
-    /// aside when someone else wants to use the app and restored later
-    /// without losing progress — Tideline only keeps one account "live" on
-    /// a device at a time, so switching means swapping this whole bundle.
-    struct AccountSnapshot: Codable {
-        var profile: UserProfile
-        var quizResults: [QuizResult]
-        var scanHistory: [ScanHistoryEntry]
-        var hasPromptedBaselineQuiz: Bool
-        var gameBestScores: [String: Int]
-        var levelState: LevelState
-        var challengeProgress: [String: Int]
-        var communityEvents: [CleanupEvent]
     }
 
     enum GameID: String {
@@ -65,7 +49,7 @@ final class LocalStore {
         scanHistory.insert(entry, at: 0)
     }
 
-    var gameBestScores: [String: Int] {
+    private var gameBestScores: [String: Int] {
         get { decode(Key.gameBestScores) ?? [:] }
         set { encode(newValue, forKey: Key.gameBestScores) }
     }
@@ -124,58 +108,6 @@ final class LocalStore {
         defaults.removeObject(forKey: Key.gameBestScores)
         defaults.removeObject(forKey: Key.levelState)
         defaults.removeObject(forKey: Key.challengeProgress)
-    }
-
-    private var archivedAccounts: [String: AccountSnapshot] {
-        get { decode(Key.archivedAccounts) ?? [:] }
-        set { encode(newValue, forKey: Key.archivedAccounts) }
-    }
-
-    /// Other accounts that have been set aside on this device and can be
-    /// switched back to, newest-created first.
-    var switchableAccounts: [UserProfile] {
-        archivedAccounts.values.map(\.profile).sorted { $0.createdAt > $1.createdAt }
-    }
-
-    /// Bundles up the currently-active account's data and sets it aside so
-    /// `restoreAccount(id:)` can bring it back later. Does not clear the
-    /// active keys — call `signOut()` afterward for that.
-    func archiveCurrentAccount() {
-        guard let profile else { return }
-        let snapshot = AccountSnapshot(
-            profile: profile,
-            quizResults: quizResults,
-            scanHistory: scanHistory,
-            hasPromptedBaselineQuiz: hasPromptedBaselineQuiz,
-            gameBestScores: gameBestScores,
-            levelState: levelState,
-            challengeProgress: challengeProgress,
-            communityEvents: CommunityStore.shared.events
-        )
-        var all = archivedAccounts
-        all[profile.id] = snapshot
-        archivedAccounts = all
-    }
-
-    /// Makes a previously set-aside account active again, replacing
-    /// whatever's currently active. Returns false if no such account is
-    /// archived (e.g. it was already restored elsewhere).
-    @discardableResult
-    func restoreAccount(id: String) -> Bool {
-        guard let snapshot = archivedAccounts[id] else { return false }
-        profile = snapshot.profile
-        quizResults = snapshot.quizResults
-        scanHistory = snapshot.scanHistory
-        hasPromptedBaselineQuiz = snapshot.hasPromptedBaselineQuiz
-        gameBestScores = snapshot.gameBestScores
-        levelState = snapshot.levelState
-        challengeProgress = snapshot.challengeProgress
-        CommunityStore.shared.events = snapshot.communityEvents
-
-        var all = archivedAccounts
-        all.removeValue(forKey: id)
-        archivedAccounts = all
-        return true
     }
 
     private func decode<T: Decodable>(_ key: String) -> T? {

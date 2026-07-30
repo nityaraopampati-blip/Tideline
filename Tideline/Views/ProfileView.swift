@@ -3,7 +3,7 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject private var appState: AppState
     @State private var showResetConfirmation = false
-    @State private var showNewAccountConfirmation = false
+    @State private var showBaselineQuiz = false
 
     var body: some View {
         NavigationStack {
@@ -37,25 +37,18 @@ struct ProfileView: View {
                                 Text("You skipped the baseline quiz.")
                                     .font(.system(size: 13))
                                     .foregroundStyle(TideTheme.inkSoft)
+                                Button("Take the Quiz") {
+                                    showBaselineQuiz = true
+                                }
+                                .buttonStyle(TideOutlineButtonStyle(tint: TideTheme.tide))
                             }
                         }
                     }
 
-                    if !appState.switchableAccounts.isEmpty {
-                        switchAccountCard
+                    Button("Reset Account", role: .destructive) {
+                        showResetConfirmation = true
                     }
-
-                    VStack(spacing: 10) {
-                        Button("Create Another Account") {
-                            showNewAccountConfirmation = true
-                        }
-                        .buttonStyle(TideOutlineButtonStyle(tint: TideTheme.deep))
-
-                        Button("Reset Account", role: .destructive) {
-                            showResetConfirmation = true
-                        }
-                        .buttonStyle(TideOutlineButtonStyle(tint: TideTheme.coral))
-                    }
+                    .buttonStyle(TideOutlineButtonStyle(tint: TideTheme.coral))
                 }
                 .padding(20)
             }
@@ -71,53 +64,8 @@ struct ProfileView: View {
             } message: {
                 Text("This erases all your scans, XP, levels, badges, challenges, and community events, and takes you back to the very beginning. This can't be undone.")
             }
-            .confirmationDialog(
-                "Create another account?",
-                isPresented: $showNewAccountConfirmation,
-                titleVisibility: .visible
-            ) {
-                Button("Continue") { appState.createAnotherAccount() }
-                Button("Cancel", role: .cancel) {}
-            } message: {
-                Text("Tideline only keeps one account signed in at a time, so \(appState.profile?.displayName ?? "this account") will be set aside — nothing is lost, and you can switch back from Settings anytime. Then whoever's holding the phone can sign in and start their own account.")
-            }
-        }
-    }
-
-    private var switchAccountCard: some View {
-        TideCard {
-            VStack(alignment: .leading, spacing: 12) {
-                EyebrowText(text: "Switch Account")
-                VStack(spacing: 0) {
-                    ForEach(Array(appState.switchableAccounts.enumerated()), id: \.element.id) { index, account in
-                        Button {
-                            appState.switchAccount(to: account.id)
-                        } label: {
-                            HStack {
-                                ZStack {
-                                    Circle()
-                                        .fill(TideTheme.seafoamLight)
-                                        .frame(width: 34, height: 34)
-                                    Image(systemName: "person.fill")
-                                        .font(.system(size: 14))
-                                        .foregroundStyle(TideTheme.deep)
-                                }
-                                Text(account.displayName ?? "Tideline User")
-                                    .font(.system(size: 14, weight: .medium))
-                                    .foregroundStyle(TideTheme.ink)
-                                Spacer()
-                                Image(systemName: "arrow.left.arrow.right")
-                                    .font(.system(size: 12, weight: .semibold))
-                                    .foregroundStyle(TideTheme.tide)
-                            }
-                            .padding(.vertical, 8)
-                        }
-                        .buttonStyle(TidePressableStyle())
-                        if index < appState.switchableAccounts.count - 1 {
-                            Divider()
-                        }
-                    }
-                }
+            .fullScreenCover(isPresented: $showBaselineQuiz) {
+                BaselineQuizView()
             }
         }
     }
