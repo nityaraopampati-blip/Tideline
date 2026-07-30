@@ -62,18 +62,19 @@ struct ChallengesView: View {
     // MARK: - Level
 
     private var levelCard: some View {
-        TideCard {
+        let persona = LevelTitles.persona(for: levelState.levelNumber)
+        let tint = Color(hex: persona.colorHex)
+        return TideCard {
             HStack(spacing: 14) {
                 ZStack {
                     Circle()
-                        .fill(LinearGradient(colors: [TideTheme.seafoam, TideTheme.deep], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .fill(LinearGradient(colors: [tint.opacity(0.85), tint], startPoint: .topLeading, endPoint: .bottomTrailing))
                         .frame(width: 46, height: 46)
-                    Text("\(levelState.levelNumber)")
-                        .font(.system(size: 18, weight: .bold, design: .rounded))
-                        .foregroundStyle(.white)
+                    Text(persona.emoji)
+                        .font(.system(size: 22))
                 }
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("Level \(levelState.levelNumber) · \(LevelTitles.name(for: levelState.levelNumber))")
+                    Text("Level \(levelState.levelNumber) · \(persona.name)")
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundStyle(TideTheme.ink)
                     ProgressBar(progress: Double(levelState.xp) / Double(levelState.cap))
