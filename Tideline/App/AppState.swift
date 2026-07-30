@@ -34,12 +34,46 @@ final class AppState: ObservableObject {
         profile = newProfile
     }
 
-    func signOut() {
+    /// Other accounts set aside on this device that can be switched back
+    /// to from Settings.
+    var switchableAccounts: [UserProfile] { store.switchableAccounts }
+
+    /// Permanently wipes the current account — scans, XP, badges,
+    /// challenges, and community events — with no way to get it back, and
+    /// returns to the sign-in screen.
+    func resetAccount() {
         store.signOut()
+        CommunityStore.shared.reset()
         profile = nil
         quizResults = []
         scanHistory = []
         hasPromptedBaselineQuiz = false
+    }
+
+    /// Sets the current account aside (so it can be switched back to later)
+    /// and returns to the sign-in screen for someone else to create theirs
+    /// — Tideline only keeps one account "live" on a device at a time.
+    func createAnotherAccount() {
+        store.archiveCurrentAccount()
+        store.signOut()
+        CommunityStore.shared.reset()
+        profile = nil
+        quizResults = []
+        scanHistory = []
+        hasPromptedBaselineQuiz = false
+    }
+
+    /// Swaps in a previously set-aside account, archiving whichever one is
+    /// currently active first so nothing is lost.
+    func switchAccount(to id: String) {
+        if profile != nil {
+            store.archiveCurrentAccount()
+        }
+        guard store.restoreAccount(id: id) else { return }
+        profile = store.profile
+        quizResults = store.quizResults
+        scanHistory = store.scanHistory
+        hasPromptedBaselineQuiz = store.hasPromptedBaselineQuiz
     }
 
     func recordBaselineQuiz(score: Int, totalQuestions: Int) {

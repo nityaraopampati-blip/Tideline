@@ -37,6 +37,12 @@ final class CommunityStore {
         events.removeAll { $0.id == id }
     }
 
+    /// Clears every locally-saved event — used when resetting or handing
+    /// the device off to a new account.
+    func reset() {
+        defaults.removeObject(forKey: key)
+    }
+
     private func update(_ event: CleanupEvent) {
         var all = events
         guard let index = all.firstIndex(where: { $0.id == event.id }) else { return }
