@@ -10,7 +10,7 @@ struct PlasticLogSection: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Your Plastic Log")
+            Text("📊 Your Plastic Log")
                 .font(.system(size: 18, weight: .semibold, design: .rounded))
                 .foregroundStyle(TideTheme.ink)
 

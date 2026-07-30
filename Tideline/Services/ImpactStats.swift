@@ -10,7 +10,6 @@ enum LogRange: String, CaseIterable, Identifiable {
     case day = "Day"
     case week = "Week"
     case month = "Month"
-    case year = "Year"
     var id: String { rawValue }
 }
 
@@ -19,6 +18,12 @@ struct WeeklySummary {
     let grams: Double
     let co2Kg: Double
     let goalDays: Int // out of 7
+}
+
+struct RangeSummary {
+    let itemsLogged: Int
+    let grams: Double
+    let co2Kg: Double
 }
 
 enum TideScoreState {
@@ -53,6 +58,28 @@ enum ImpactStats {
         let co2 = grams * 0.06 / 1000 * 38
         let daysWithLog = Set(weekItems.map { Calendar.current.startOfDay(for: $0.timestamp) }).count
         return WeeklySummary(itemsLogged: weekItems.count, grams: grams, co2Kg: co2, goalDays: min(daysWithLog, 7))
+    }
+
+    /// Totals for whichever range is selected on the plastic-log chart
+    /// (Day/Week/Month/Year), so the stat tiles above the chart actually
+    /// match what the chart is showing instead of always being weekly.
+    static func rangeSummary(history: [ScanHistoryEntry], range: LogRange, now: Date = Date()) -> RangeSummary {
+        let calendar = Calendar.current
+        let windowStart: Date
+
+        switch range {
+        case .day:
+            windowStart = calendar.startOfDay(for: now)
+        case .week:
+            windowStart = startOfWeek(containing: now)
+        case .month:
+            windowStart = calendar.date(byAdding: .day, value: -27, to: calendar.startOfDay(for: now)) ?? now
+        }
+
+        let itemsInRange = history.filter { $0.timestamp >= windowStart }
+        let grams = itemsInRange.reduce(0) { $0 + weight(for: $1) }
+        let co2 = grams * 0.06 / 1000 * 38
+        return RangeSummary(itemsLogged: itemsInRange.count, grams: grams, co2Kg: co2)
     }
 
     static func tideScore(history: [ScanHistoryEntry], now: Date = Date()) -> TideScoreState {
@@ -119,17 +146,6 @@ enum ImpactStats {
                 let grams = history.filter { $0.timestamp >= calendar.startOfDay(for: start) && $0.timestamp <= end }
                     .reduce(0) { $0 + weight(for: $1) }
                 return ChartBucket(label: "W\(weekIndex + 1)", grams: grams)
-            }
-
-        case .year:
-            let labels = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"]
-            let currentYear = calendar.component(.year, from: now)
-            return labels.enumerated().map { index, label in
-                let grams = history.filter {
-                    calendar.component(.month, from: $0.timestamp) == index + 1 &&
-                    calendar.component(.year, from: $0.timestamp) == currentYear
-                }.reduce(0) { $0 + weight(for: $1) }
-                return ChartBucket(label: label, grams: grams)
             }
         }
     }

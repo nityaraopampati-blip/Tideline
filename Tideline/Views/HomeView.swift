@@ -18,8 +18,20 @@ struct HomeView: View {
         ImpactStats.weeklySummary(history: appState.scanHistory)
     }
 
+    private var rangeSummary: RangeSummary {
+        ImpactStats.rangeSummary(history: appState.scanHistory, range: selectedRange)
+    }
+
     private var chartBuckets: [ChartBucket] {
         ImpactStats.chartBuckets(history: appState.scanHistory, range: selectedRange)
+    }
+
+    private var rangeCaption: String {
+        switch selectedRange {
+        case .day: return "TODAY'S TOTALS"
+        case .week: return "THIS WEEK'S TOTALS"
+        case .month: return "LAST 4 WEEKS' TOTALS"
+        }
     }
 
     private var greeting: String {
@@ -45,7 +57,13 @@ struct HomeView: View {
 
                     TideScoreCard(state: tideScoreState)
 
-                    StatsGrid(summary: weeklySummary)
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(rangeCaption)
+                            .font(.system(size: 11, weight: .semibold))
+                            .tracking(0.4)
+                            .foregroundStyle(TideTheme.inkSoft)
+                        StatsGrid(rangeSummary: rangeSummary, goalDays: weeklySummary.goalDays)
+                    }
 
                     PlasticLogSection(selectedRange: $selectedRange, buckets: chartBuckets)
 
@@ -98,7 +116,7 @@ struct HomeView: View {
     private var recentSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("Recent Scans")
+                Text("🕓 Recent Scans")
                     .font(.system(size: 18, weight: .semibold, design: .rounded))
                     .foregroundStyle(TideTheme.ink)
                 Spacer()
@@ -127,9 +145,12 @@ struct HistoryRow: View {
 
     var body: some View {
         HStack {
-            Image(systemName: icon(for: entry.scanMethod))
-                .foregroundStyle(TideTheme.tide)
-                .frame(width: 24)
+            ZStack {
+                Circle().fill(color(for: entry.scanMethod).opacity(0.15)).frame(width: 32, height: 32)
+                Image(systemName: icon(for: entry.scanMethod))
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(color(for: entry.scanMethod))
+            }
             VStack(alignment: .leading, spacing: 2) {
                 Text(entry.itemName)
                     .font(.system(size: 14, weight: .medium))
@@ -150,6 +171,14 @@ struct HistoryRow: View {
         case .barcode: return "barcode.viewfinder"
         case .photo: return "camera.fill"
         case .search: return "magnifyingglass"
+        }
+    }
+
+    private func color(for method: ScanMethod) -> Color {
+        switch method {
+        case .barcode: return TideTheme.tide
+        case .photo: return TideTheme.coral
+        case .search: return Color(hex: 0xE8A93B)
         }
     }
 }

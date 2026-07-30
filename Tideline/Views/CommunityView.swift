@@ -82,7 +82,7 @@ struct CommunityView: View {
     private var tipBox: some View {
         HStack(alignment: .top, spacing: 10) {
             Text("📍").font(.system(size: 16))
-            Text("Events you create are saved on this device for now. Use the share button on any event to invite friends — it opens Messages, WhatsApp, Instagram, or whatever you've got installed.")
+            Text("Heads up: events don't automatically show up for other people — creating one only saves it on your device. Tap the share icon on your event to send an invite through Messages, WhatsApp, Instagram, or whatever you've got, so friends know to come.")
                 .font(.system(size: 12.5))
                 .foregroundStyle(Color(hex: 0x0D3A32))
         }
@@ -109,15 +109,18 @@ struct CommunityView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .top, spacing: 12) {
                 ZStack {
-                    Circle().fill(TideTheme.seafoamLight).frame(width: 44, height: 44)
+                    Circle().fill(eventTypeColor(event.type).opacity(0.16)).frame(width: 44, height: 44)
                     Image(systemName: event.type.icon)
-                        .foregroundStyle(TideTheme.deep)
+                        .foregroundStyle(eventTypeColor(event.type))
                 }
                 VStack(alignment: .leading, spacing: 3) {
                     Text(event.name)
                         .font(.system(size: 14, weight: .bold, design: .rounded))
                         .foregroundStyle(TideTheme.ink)
-                    Text("\(event.type.rawValue) · \(event.location) · \(event.date.formatted(date: .abbreviated, time: .omitted))")
+                    Text("\(event.type.rawValue) · \(event.location)")
+                        .font(.system(size: 11))
+                        .foregroundStyle(TideTheme.inkSoft)
+                    Text(event.timeRangeText)
                         .font(.system(size: 11))
                         .foregroundStyle(TideTheme.inkSoft)
                     if !event.notes.isEmpty {
@@ -132,6 +135,12 @@ struct CommunityView: View {
                         .padding(.top, 2)
                 }
                 Spacer()
+            }
+
+            if event.isHostedByMe {
+                Text("📤 Share to invite people — they won't see this event automatically.")
+                    .font(.system(size: 10.5))
+                    .foregroundStyle(TideTheme.inkSoft)
             }
 
             HStack(spacing: 10) {
@@ -157,7 +166,10 @@ struct CommunityView: View {
                     .clipShape(Capsule())
                 }
 
-                ShareLink(item: shareText(for: event)) {
+                ShareLink(
+                    item: inviteImage(for: event),
+                    preview: SharePreview(event.name, image: inviteImage(for: event))
+                ) {
                     Image(systemName: "square.and.arrow.up")
                         .font(.system(size: 13, weight: .semibold))
                         .foregroundStyle(TideTheme.deep)
@@ -182,8 +194,25 @@ struct CommunityView: View {
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
-    private func shareText(for event: CleanupEvent) -> String {
-        "Join me for \(event.name) — a \(event.type.rawValue.lowercased()) at \(event.location) on \(event.date.formatted(date: .abbreviated, time: .omitted)). Logged on Tideline 🌊"
+    /// Renders the evite-style card to an image for sharing — a proper
+    /// invite instead of a plain text message.
+    @MainActor
+    private func inviteImage(for event: CleanupEvent) -> Image {
+        let renderer = ImageRenderer(content: EventInviteCard(event: event))
+        renderer.scale = 3
+        if let uiImage = renderer.uiImage {
+            return Image(uiImage: uiImage)
+        }
+        return Image(systemName: "photo")
+    }
+
+    private func eventTypeColor(_ type: CleanupEventType) -> Color {
+        switch type {
+        case .beachCleanup: return Color(hex: 0x3B5FE8)
+        case .riverCleanup: return TideTheme.tide
+        case .parkCleanup: return TideTheme.deep
+        case .neighborhoodPickup: return Color(hex: 0xE8A93B)
+        }
     }
 }
 

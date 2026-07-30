@@ -23,7 +23,10 @@ struct CleanupEvent: Codable, Identifiable, Equatable {
     var name: String
     var location: String
     var type: CleanupEventType
+    /// Start date and time.
     var date: Date
+    /// End date and time — same calendar day as `date`.
+    var endDate: Date
     var notes: String
     /// True if this device's user created the event.
     var isHostedByMe: Bool
@@ -39,6 +42,7 @@ struct CleanupEvent: Codable, Identifiable, Equatable {
         location: String,
         type: CleanupEventType,
         date: Date,
+        endDate: Date,
         notes: String,
         isHostedByMe: Bool = true,
         hasJoined: Bool = false,
@@ -49,13 +53,22 @@ struct CleanupEvent: Codable, Identifiable, Equatable {
         self.location = location
         self.type = type
         self.date = date
+        self.endDate = endDate
         self.notes = notes
         self.isHostedByMe = isHostedByMe
         self.hasJoined = hasJoined
         self.goingCount = goingCount
     }
 
+    /// Stays visible until the event's end time passes, not just the day.
     var isUpcoming: Bool {
-        date >= Calendar.current.startOfDay(for: Date())
+        endDate >= Date()
+    }
+
+    var timeRangeText: String {
+        let dateStr = date.formatted(date: .abbreviated, time: .omitted)
+        let startStr = date.formatted(date: .omitted, time: .shortened)
+        let endStr = endDate.formatted(date: .omitted, time: .shortened)
+        return "\(dateStr) · \(startStr)–\(endStr)"
     }
 }

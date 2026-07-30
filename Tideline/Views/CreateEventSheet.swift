@@ -7,8 +7,11 @@ struct CreateEventSheet: View {
     @State private var name = ""
     @State private var location = ""
     @State private var type: CleanupEventType = .beachCleanup
-    @State private var date = Date()
+    @State private var day = Date()
+    @State private var startTime = Date()
+    @State private var endTime = Date().addingTimeInterval(2 * 3600)
     @State private var notes = ""
+    @State private var errorMessage: String?
 
     private var canPublish: Bool {
         !name.trimmingCharacters(in: .whitespaces).isEmpty &&
@@ -19,6 +22,16 @@ struct CreateEventSheet: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
+                    HStack(alignment: .top, spacing: 10) {
+                        Text("📍").font(.system(size: 15))
+                        Text("This publishes to your device only — after creating it, use the share button to invite people. It won't show up for them on its own.")
+                            .font(.system(size: 11.5))
+                            .foregroundStyle(Color(hex: 0x0D3A32))
+                    }
+                    .padding(11)
+                    .background(TideTheme.seafoamLight)
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+
                     field(label: "Event Name") {
                         TextField("e.g. Sunset Beach sweep", text: $name)
                     }
@@ -35,18 +48,34 @@ struct CreateEventSheet: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     field(label: "Date") {
-                        DatePicker("", selection: $date, in: Date()..., displayedComponents: .date)
+                        DatePicker("", selection: $day, in: Date()..., displayedComponents: .date)
                             .labelsHidden()
                     }
+
+                    HStack(spacing: 12) {
+                        field(label: "Start Time") {
+                            DatePicker("", selection: $startTime, displayedComponents: .hourAndMinute)
+                                .labelsHidden()
+                        }
+                        field(label: "End Time") {
+                            DatePicker("", selection: $endTime, displayedComponents: .hourAndMinute)
+                                .labelsHidden()
+                        }
+                    }
+
+                    if let errorMessage {
+                        Text(errorMessage)
+                            .font(.system(size: 11.5))
+                            .foregroundStyle(TideTheme.coral)
+                    }
+
                     field(label: "Extra Details (optional)") {
                         TextField("e.g. Bring gloves and a reusable water bottle", text: $notes, axis: .vertical)
                             .lineLimit(3...6)
                     }
 
                     Button("Publish Event") {
-                        let event = CleanupEvent(name: name, location: location, type: type, date: date, notes: notes)
-                        onSave(event)
-                        dismiss()
+                        publish()
                     }
                     .buttonStyle(TideCTAButtonStyle(tint: TideTheme.tide))
                     .disabled(!canPublish)
@@ -63,6 +92,28 @@ struct CreateEventSheet: View {
                 }
             }
         }
+    }
+
+    private func publish() {
+        let start = combine(day: day, time: startTime)
+        let end = combine(day: day, time: endTime)
+        guard end > start else {
+            errorMessage = "End time needs to be after the start time."
+            return
+        }
+        errorMessage = nil
+        let event = CleanupEvent(name: name, location: location, type: type, date: start, endDate: end, notes: notes)
+        onSave(event)
+        dismiss()
+    }
+
+    private func combine(day: Date, time: Date) -> Date {
+        let calendar = Calendar.current
+        var merged = calendar.dateComponents([.year, .month, .day], from: day)
+        let timeComponents = calendar.dateComponents([.hour, .minute], from: time)
+        merged.hour = timeComponents.hour
+        merged.minute = timeComponents.minute
+        return calendar.date(from: merged) ?? day
     }
 
     private func field<Content: View>(label: String, @ViewBuilder content: () -> Content) -> some View {

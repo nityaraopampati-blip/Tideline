@@ -5,9 +5,16 @@ struct ChallengesView: View {
     @State private var challengeProgress: [String: Int] = LocalStore.shared.challengeProgress
     @State private var levelState: LevelState = LocalStore.shared.levelState
     @State private var selectedBadge: Badge?
+    @State private var showConfetti = false
+    @State private var pendingProofChallenge: Challenge?
+    @State private var showCamera = false
 
     private var badges: [Badge] {
         ChallengeCatalog.badges(scanHistory: appState.scanHistory, levelState: levelState)
+    }
+
+    private func isDone(_ challenge: Challenge) -> Bool {
+        (challengeProgress[challenge.id] ?? 0) >= challenge.goal
     }
 
     var body: some View {
@@ -29,8 +36,16 @@ struct ChallengesView: View {
                 levelState = LocalStore.shared.levelState
             }
         }
+        .overlay(ConfettiView(isActive: $showConfetti))
         .sheet(item: $selectedBadge) { badge in
             badgeDetail(badge)
+        }
+        .fullScreenCover(isPresented: $showCamera) {
+            CameraCaptureRepresentable(
+                onCapture: { _ in handleProofCaptured() },
+                onCancel: { showCamera = false; pendingProofChallenge = nil }
+            )
+            .ignoresSafeArea()
         }
     }
 
@@ -58,7 +73,7 @@ struct ChallengesView: View {
                         .foregroundStyle(.white)
                 }
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("Level \(levelState.levelNumber)")
+                    Text("Level \(levelState.levelNumber) · \(LevelTitles.name(for: levelState.levelNumber))")
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                         .foregroundStyle(TideTheme.ink)
                     ProgressBar(progress: Double(levelState.xp) / Double(levelState.cap))
@@ -72,46 +87,71 @@ struct ChallengesView: View {
 
     // MARK: - Featured challenge
 
+    @ViewBuilder
     private var featuredCard: some View {
         let challenge = ChallengeCatalog.featured
-        let have = challengeProgress[challenge.id] ?? 0
-        let done = have >= challenge.goal
-
-        return VStack(alignment: .leading, spacing: 10) {
-            EyebrowText(text: "This Week's Challenge")
-            HStack {
-                Text(challenge.name)
-                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                    .foregroundStyle(TideTheme.ink)
-                Spacer()
-                Text(done ? "Completed ✓" : "\(have) / \(challenge.goal)")
-                    .font(.system(size: 11, weight: .semibold))
-                    .foregroundStyle(TideTheme.tide)
+        if isDone(challenge) {
+            completedBanner(name: challenge.name)
+        } else {
+            let have = challengeProgress[challenge.id] ?? 0
+            VStack(alignment: .leading, spacing: 10) {
+                EyebrowText(text: "This Week's Challenge")
+                HStack {
+                    Text(challenge.name)
+                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                        .foregroundStyle(TideTheme.ink)
+                    Spacer()
+                    Text("\(have) / \(challenge.goal)")
+                        .font(.system(size: 11, weight: .semibold))
+                        .foregroundStyle(TideTheme.tide)
+                }
+                ProgressBar(progress: Double(have) / Double(challenge.goal))
+                Text("📸 Snap a quick photo each time to confirm you actually did it.")
+                    .font(.system(size: 10.5))
+                    .foregroundStyle(TideTheme.inkSoft)
+                Button(challenge.buttonLabel) {
+                    requestProof(for: challenge)
+                }
+                .buttonStyle(TideCTAButtonStyle(tint: TideTheme.tide))
             }
-            ProgressBar(progress: Double(have) / Double(challenge.goal))
-            Button(done ? "✓ Completed this week" : challenge.buttonLabel) {
-                bump(challenge)
-            }
-            .buttonStyle(TideCTAButtonStyle(tint: done ? TideTheme.inkSoft : TideTheme.tide))
-            .disabled(done)
+            .padding(16)
+            .background(
+                LinearGradient(colors: [TideTheme.seafoamLight, TideTheme.surface2], startPoint: .topLeading, endPoint: .bottomTrailing)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
         }
-        .padding(16)
-        .background(
-            LinearGradient(colors: [TideTheme.seafoamLight, TideTheme.surface2], startPoint: .topLeading, endPoint: .bottomTrailing)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+    }
+
+    private func completedBanner(name: String) -> some View {
+        HStack(spacing: 10) {
+            Image(systemName: "checkmark.seal.fill")
+                .foregroundStyle(TideTheme.tide)
+            Text("\(name) — completed this week! 🎉")
+                .font(.system(size: 13, weight: .semibold))
+                .foregroundStyle(TideTheme.deep)
+        }
+        .padding(14)
+        .background(TideTheme.seafoamLight)
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 
     // MARK: - More challenges
 
+    private var remainingMoreChallenges: [Challenge] {
+        ChallengeCatalog.more.filter { !isDone($0) }
+    }
+
+    @ViewBuilder
     private var moreChallengesSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("More Challenges")
-                .font(.system(size: 18, weight: .semibold, design: .rounded))
-                .foregroundStyle(TideTheme.ink)
-            VStack(spacing: 10) {
-                ForEach(ChallengeCatalog.more) { challenge in
-                    moreChallengeCard(challenge)
+        if !remainingMoreChallenges.isEmpty {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("More Challenges")
+                    .font(.system(size: 18, weight: .semibold, design: .rounded))
+                    .foregroundStyle(TideTheme.ink)
+                VStack(spacing: 10) {
+                    ForEach(remainingMoreChallenges) { challenge in
+                        moreChallengeCard(challenge)
+                    }
                 }
             }
         }
@@ -119,31 +159,48 @@ struct ChallengesView: View {
 
     private func moreChallengeCard(_ challenge: Challenge) -> some View {
         let have = challengeProgress[challenge.id] ?? 0
-        let done = have >= challenge.goal
         return VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Text(challenge.name)
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .foregroundStyle(TideTheme.ink)
                 Spacer()
-                Text(done ? "Completed ✓" : "\(have) / \(challenge.goal)")
+                Text("\(have) / \(challenge.goal)")
                     .font(.system(size: 11, weight: .semibold))
                     .foregroundStyle(TideTheme.tide)
             }
             ProgressBar(progress: Double(have) / Double(challenge.goal))
-            Button(done ? "✓ Completed" : "+ Log progress") { bump(challenge) }
-                .buttonStyle(TideOutlineButtonStyle(tint: done ? TideTheme.inkSoft : TideTheme.tide))
-                .disabled(done)
+            Button("📸 Log progress") { requestProof(for: challenge) }
+                .buttonStyle(TideOutlineButtonStyle(tint: TideTheme.tide))
         }
         .padding(14)
         .background(Color(.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
+    /// Requires a photo before logging progress, so a challenge can't be
+    /// bumped without actually showing proof it happened.
+    private func requestProof(for challenge: Challenge) {
+        pendingProofChallenge = challenge
+        showCamera = true
+    }
+
+    private func handleProofCaptured() {
+        showCamera = false
+        if let challenge = pendingProofChallenge {
+            bump(challenge)
+        }
+        pendingProofChallenge = nil
+    }
+
     private func bump(_ challenge: Challenge) {
+        let wasDone = (challengeProgress[challenge.id] ?? 0) >= challenge.goal
         let updated = LocalStore.shared.bumpChallenge(challenge.id, goal: challenge.goal, xpReward: challenge.xpReward)
         challengeProgress[challenge.id] = updated
         levelState = LocalStore.shared.levelState
+        if !wasDone && updated >= challenge.goal {
+            showConfetti = true
+        }
     }
 
     // MARK: - Badges
@@ -176,17 +233,18 @@ struct ChallengesView: View {
 
     private func badgeCircle(_ badge: Badge, size: CGFloat, iconSize: CGFloat) -> some View {
         let earned = badge.isEarned()
+        let tint = Color(hex: badge.colorHex)
         return ZStack {
             Circle()
                 .fill(
                     earned
-                        ? AnyShapeStyle(LinearGradient(colors: [TideTheme.seafoam, TideTheme.tide], startPoint: .topLeading, endPoint: .bottomTrailing))
-                        : AnyShapeStyle(TideTheme.surface2)
+                        ? AnyShapeStyle(LinearGradient(colors: [tint.opacity(0.85), tint], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        : AnyShapeStyle(tint.opacity(0.14))
                 )
                 .frame(width: size, height: size)
             Image(systemName: badge.icon)
                 .font(.system(size: iconSize))
-                .foregroundStyle(earned ? .white : TideTheme.inkSoft.opacity(0.5))
+                .foregroundStyle(earned ? .white : tint.opacity(0.55))
         }
     }
 

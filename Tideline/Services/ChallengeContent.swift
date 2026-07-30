@@ -26,6 +26,7 @@ enum ChallengeCatalog {
                 id: "first-scan",
                 name: "First Scan",
                 icon: "checkmark.seal.fill",
+                colorHex: 0x43A047, // tide
                 description: "Log your very first item — scan a barcode, take a photo, or search for something from the Scan tab.",
                 isEarned: { !scanHistory.isEmpty }
             ),
@@ -33,13 +34,15 @@ enum ChallengeCatalog {
                 id: "cleanup-hero",
                 name: "Cleanup Hero",
                 icon: "figure.wave",
-                description: "Join or host a community cleanup event. This unlocks once Community ships in a future update.",
-                isEarned: { false }
+                colorHex: 0x3B5FE8, // blue
+                description: "Join or host a community cleanup event from the Community tab.",
+                isEarned: { hasJoinedOrHostedEvent() }
             ),
             Badge(
                 id: "week-warrior",
                 name: "Week Warrior",
                 icon: "flame.fill",
+                colorHex: 0xFF7043, // coral
                 description: "Log at least one item every day for 7 days in a row.",
                 isEarned: { hasSevenDayStreak(scanHistory) }
             ),
@@ -47,10 +50,15 @@ enum ChallengeCatalog {
                 id: "eco-star",
                 name: "Eco Star",
                 icon: "star.fill",
+                colorHex: 0xE8A93B, // amber
                 description: "Reach Level 5 by earning XP from logging items, playing games, and completing challenges.",
                 isEarned: { levelState.levelNumber >= 5 }
             ),
         ]
+    }
+
+    private static func hasJoinedOrHostedEvent() -> Bool {
+        CommunityStore.shared.events.contains { $0.isHostedByMe || $0.hasJoined }
     }
 
     private static func hasSevenDayStreak(_ history: [ScanHistoryEntry]) -> Bool {
