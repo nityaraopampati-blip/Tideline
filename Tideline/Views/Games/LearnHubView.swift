@@ -4,6 +4,7 @@ enum GameDestination: Hashable {
     case trueFalseQuiz
     case sortThePlastic
     case recycleRunner
+    case recycleHoops
 }
 
 struct LearnHubView: View {
@@ -37,6 +38,14 @@ struct LearnHubView: View {
                         subtitle: "Dodge the bins, collect the trash, beat your best score.",
                         bestLabel: bestLabel(for: .recycleRunner, suffix: nil)
                     )
+                    GameCard(
+                        destination: .recycleHoops,
+                        icon: "basketball.fill",
+                        gradient: [Color(hex: 0xFFE1D5), Color(hex: 0xFF7043)],
+                        title: "Recycle Hoops",
+                        subtitle: "Swipe up to shoot the plastic into the bin. Chain makes for a streak bonus.",
+                        bestLabel: bestLabel(for: .recycleHoops, suffix: nil)
+                    )
                 }
                 .padding(20)
             }
@@ -50,6 +59,8 @@ struct LearnHubView: View {
                     SortThePlasticView()
                 case .recycleRunner:
                     RecycleRunnerView()
+                case .recycleHoops:
+                    RecycleHoopsView()
                 }
             }
         }

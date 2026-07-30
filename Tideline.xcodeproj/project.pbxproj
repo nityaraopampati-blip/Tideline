@@ -10,6 +10,7 @@
 		00B7E516F0E47847A05586CC /* PlasticLogSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3303094EEB011942A6699555 /* PlasticLogSection.swift */; };
 		0A6670D02BC84DB8FCF7A550 /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451C20FF9E28251F997AA7D /* QuizQuestion.swift */; };
 		0AB0754207DE7BE869A3047E /* BarcodeScannerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674DB3AB22D3452831C9DE4 /* BarcodeScannerRepresentable.swift */; };
+		121B0AF89BFE50D4C68986DC /* RecycleHoopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C0AA9DFDBC66103111389 /* RecycleHoopsView.swift */; };
 		17E4992C77C7EC07AA251164 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62502BA574AEF99B9005BB65 /* MainTabView.swift */; };
 		1B50374FB1654DACF2D585A2 /* BarcodeScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0BEDE45A9F83A4DD1A5D11 /* BarcodeScanView.swift */; };
 		1CF289C0A0CDD37DE5B1330B /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8F4DC0552D9FAC841CB0FC /* LocalStore.swift */; };
@@ -110,6 +111,7 @@
 		86233459F68C66174B615F61 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		89F9D991C32EB4C924C2B4D3 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		8C0BEDE45A9F83A4DD1A5D11 /* BarcodeScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanView.swift; sourceTree = "<group>"; };
+		8D3C0AA9DFDBC66103111389 /* RecycleHoopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleHoopsView.swift; sourceTree = "<group>"; };
 		91568770BBF102F794491BF2 /* EventInviteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInviteCard.swift; sourceTree = "<group>"; };
 		9675EB36C0CAA05B2AA14961 /* PhotoScanCapability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScanCapability.swift; sourceTree = "<group>"; };
 		9BCD9656FF6C87C86C9358F4 /* TideScoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideScoreCard.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				6499046E61EA8B5A2D9169F3 /* LearnHubView.swift */,
+				8D3C0AA9DFDBC66103111389 /* RecycleHoopsView.swift */,
 				2FC333631A1AEB77E6996CA8 /* RecycleRunnerView.swift */,
 				E05963725CCCE430D6651AE1 /* SortThePlasticView.swift */,
 				4681F6BDCB690719C64DBFA0 /* TrueFalseQuizView.swift */,
@@ -416,6 +419,7 @@
 				D22CDD54A2B4492D739ED9AB /* ProfileView.swift in Sources */,
 				0A6670D02BC84DB8FCF7A550 /* QuizQuestion.swift in Sources */,
 				7E8233CC501B9063B60A74D2 /* QuizResult.swift in Sources */,
+				121B0AF89BFE50D4C68986DC /* RecycleHoopsView.swift in Sources */,
 				87EEE7FB3A7D865E29DFB07D /* RecycleRunnerView.swift in Sources */,
 				39A354B0E8070AF122C8F4A5 /* ResultView.swift in Sources */,
 				2DE6FD7A0EC3416F6B4EA84F /* RunnerObject.swift in Sources */,

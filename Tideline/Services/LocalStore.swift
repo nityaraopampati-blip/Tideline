@@ -22,6 +22,7 @@ final class LocalStore {
         case trueFalseQuiz
         case sortThePlastic
         case recycleRunner
+        case recycleHoops
     }
 
     var profile: UserProfile? {

@@ -9,7 +9,7 @@ struct RecycleRunnerView: View {
     @State private var jumpTicksRemaining = 0
     @State private var invulnTicksRemaining = 0
     @State private var objects: [RunnerObject] = []
-    @State private var speed: CGFloat = 3.2
+    @State private var speed: CGFloat = 2.8
     @State private var spawnTicksRemaining = 18
 
     private enum Phase {
@@ -173,7 +173,7 @@ struct RecycleRunnerView: View {
         jumpTicksRemaining = 0
         invulnTicksRemaining = 0
         objects = []
-        speed = 3.2
+        speed = 2.8
         spawnTicksRemaining = 18
         phase = .playing
     }
@@ -191,7 +191,7 @@ struct RecycleRunnerView: View {
     private func tick() {
         guard phase == .playing else { return }
 
-        speed += 0.006
+        speed += 0.02
         if jumpTicksRemaining > 0 { jumpTicksRemaining -= 1 }
         if invulnTicksRemaining > 0 { invulnTicksRemaining -= 1 }
 
