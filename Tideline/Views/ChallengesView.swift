@@ -68,7 +68,7 @@ struct ChallengesView: View {
             HStack(spacing: 14) {
                 ZStack {
                     Circle()
-                        .fill(LinearGradient(colors: [tint.opacity(0.85), tint], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .fill(LinearGradient(colors: [tint.opacity(0.16), tint.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing))
                         .frame(width: 46, height: 46)
                     Text(persona.emoji)
                         .font(.system(size: 22))
