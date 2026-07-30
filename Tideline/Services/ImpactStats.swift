@@ -112,7 +112,7 @@ enum ImpactStats {
 
         switch range {
         case .day:
-            let labels = ["12a", "4a", "8a", "12p", "4p", "8p"]
+            let labels = ["12am", "4am", "8am", "12pm", "4pm", "8pm"]
             let todays = history.filter { calendar.isDate($0.timestamp, inSameDayAs: now) }
             return labels.enumerated().map { index, label in
                 let hourStart = index * 4
@@ -145,7 +145,9 @@ enum ImpactStats {
                 }
                 let grams = history.filter { $0.timestamp >= calendar.startOfDay(for: start) && $0.timestamp <= end }
                     .reduce(0) { $0 + weight(for: $1) }
-                return ChartBucket(label: "W\(weekIndex + 1)", grams: grams)
+                let dateFormat = Date.FormatStyle.dateTime.month(.defaultDigits).day()
+                let label = "\(start.formatted(dateFormat))–\(end.formatted(dateFormat))"
+                return ChartBucket(label: label, grams: grams)
             }
         }
     }
