@@ -28,6 +28,7 @@
 		3A483FD3F872CD4B00945411 /* StatsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8C0CAE6908686A565BE72 /* StatsGrid.swift */; };
 		4116B449AF87282D148DFCCF /* EventInviteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91568770BBF102F794491BF2 /* EventInviteCard.swift */; };
 		45035A152703A72134443A8F /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45A0F9544DA04A608FDC227 /* ConfettiView.swift */; };
+		488A4656A898983686486512 /* EventDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D36A1B0BA8BB1C56245443 /* EventDeepLink.swift */; };
 		492DC06986CE6FE06402BA4F /* ScanHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0DA7C4B1969771119AF53B /* ScanHistoryEntry.swift */; };
 		4CB3CA472DB080A2F244252C /* ScanActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1F965144E31ED92A81EA27 /* ScanActionCard.swift */; };
 		50FC47B080C7A1C80DA7C6AE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0512492A5A34F22D7BA6D58D /* AppState.swift */; };
@@ -63,6 +64,7 @@
 		DB55D7E6AD8B423A8EAB07CE /* CommunityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FC28405120E2E6BDF19FA /* CommunityStore.swift */; };
 		E04EF09CF611D3D1A571C010 /* BaselineQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B902947F29410224CA309 /* BaselineQuizView.swift */; };
 		E8191C333554557239DE5D2F /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B5530C7CEF5434B5D15FB /* CommunityView.swift */; };
+		E961ABC0E7465DFDF640FD13 /* JoinEventPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8751B8581D33C9C5A0FB8CA /* JoinEventPromptView.swift */; };
 		EA15B499E240D6784533B3D8 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129D977CF76533DB2967B00 /* ScanView.swift */; };
 		F068F6ACC67CA7D4632830D3 /* BarcodeLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F319835947A1F11D098AF91D /* BarcodeLookupService.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +90,7 @@
 		1DA7E22308CB5E3F559C7DFE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		209147DEB9B84E69CA1A9CA0 /* PlasticItemLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticItemLibrary.swift; sourceTree = "<group>"; };
 		21BD8267122F8C1B8496FD43 /* QuizQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizQuestions.json; sourceTree = "<group>"; };
+		26D36A1B0BA8BB1C56245443 /* EventDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDeepLink.swift; sourceTree = "<group>"; };
 		2DDA7A5FA874F3F6BE805FE1 /* LevelTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTitles.swift; sourceTree = "<group>"; };
 		2FC333631A1AEB77E6996CA8 /* RecycleRunnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleRunnerView.swift; sourceTree = "<group>"; };
 		317AD5482C8222A1DD6DC0E0 /* LevelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelState.swift; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		D564943D015013851A7AEDDE /* PlasticItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlasticItems.json; sourceTree = "<group>"; };
 		D5673D237B1D608B09F6A7C1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D674DB3AB22D3452831C9DE4 /* BarcodeScannerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerRepresentable.swift; sourceTree = "<group>"; };
+		D8751B8581D33C9C5A0FB8CA /* JoinEventPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinEventPromptView.swift; sourceTree = "<group>"; };
 		E05963725CCCE430D6651AE1 /* SortThePlasticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortThePlasticView.swift; sourceTree = "<group>"; };
 		E558FD48A4A78CBA3DDC39FA /* ChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesView.swift; sourceTree = "<group>"; };
 		EC0469065037F54661B1ACE7 /* CreateEventSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventSheet.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				91568770BBF102F794491BF2 /* EventInviteCard.swift */,
 				AB0D33CEE32CA258C55F0FCF /* HistoryView.swift */,
 				F2492B78416CEFDC4658573B /* HomeView.swift */,
+				D8751B8581D33C9C5A0FB8CA /* JoinEventPromptView.swift */,
 				62502BA574AEF99B9005BB65 /* MainTabView.swift */,
 				80AD25481D1C4B79C56E97C9 /* PhotoScanView.swift */,
 				3303094EEB011942A6699555 /* PlasticLogSection.swift */,
@@ -218,6 +223,7 @@
 				F319835947A1F11D098AF91D /* BarcodeLookupService.swift */,
 				ED2AFBC4D67207F24FE1345B /* ChallengeContent.swift */,
 				A83FC28405120E2E6BDF19FA /* CommunityStore.swift */,
+				26D36A1B0BA8BB1C56245443 /* EventDeepLink.swift */,
 				BEF8D97BB4F8A53B981F94FE /* GameContent.swift */,
 				BA7FD6685B119885BAFF7ADB /* ImpactStats.swift */,
 				2DDA7A5FA874F3F6BE805FE1 /* LevelTitles.swift */,
@@ -400,11 +406,13 @@
 				45035A152703A72134443A8F /* ConfettiView.swift in Sources */,
 				2B9018A0F6D44B35A1FEA3A5 /* ContentView.swift in Sources */,
 				532822EA46999D82AFD94DA1 /* CreateEventSheet.swift in Sources */,
+				488A4656A898983686486512 /* EventDeepLink.swift in Sources */,
 				4116B449AF87282D148DFCCF /* EventInviteCard.swift in Sources */,
 				BBE3BAE69FC247DDB546B11D /* GameContent.swift in Sources */,
 				8B89036507905014991CA8EC /* HistoryView.swift in Sources */,
 				D6820042ED92639B9A290B11 /* HomeView.swift in Sources */,
 				208B41D4FDB752FAD7989B03 /* ImpactStats.swift in Sources */,
+				E961ABC0E7465DFDF640FD13 /* JoinEventPromptView.swift in Sources */,
 				AA81DF5578265EFD2B854C12 /* LearnHubView.swift in Sources */,
 				37B89FA080EF581E3DD0FD6A /* LevelState.swift in Sources */,
 				976B8DE53F75B6AAD00CE577 /* LevelTitles.swift in Sources */,

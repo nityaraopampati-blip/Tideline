@@ -8,6 +8,9 @@ struct TidelineApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(appState)
+                .onOpenURL { url in
+                    appState.handleIncomingURL(url)
+                }
         }
     }
 }

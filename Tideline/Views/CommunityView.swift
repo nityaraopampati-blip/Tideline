@@ -166,17 +166,7 @@ struct CommunityView: View {
                     .clipShape(Capsule())
                 }
 
-                ShareLink(
-                    item: inviteImage(for: event),
-                    preview: SharePreview(event.name, image: inviteImage(for: event))
-                ) {
-                    Image(systemName: "square.and.arrow.up")
-                        .font(.system(size: 13, weight: .semibold))
-                        .foregroundStyle(TideTheme.deep)
-                        .padding(8)
-                        .background(TideTheme.surface2)
-                        .clipShape(Circle())
-                }
+                shareButton(for: event)
 
                 Spacer()
 
@@ -204,6 +194,30 @@ struct CommunityView: View {
             return Image(uiImage: uiImage)
         }
         return Image(systemName: "photo")
+    }
+
+    /// Shares a `tideline://join` link (with the evite as its preview
+    /// image) so that anyone who taps it and also has Tideline installed
+    /// can add the event to their own Community list. Falls back to
+    /// sharing just the image if the link can't be built.
+    @ViewBuilder
+    private func shareButton(for event: CleanupEvent) -> some View {
+        let label = Image(systemName: "square.and.arrow.up")
+            .font(.system(size: 13, weight: .semibold))
+            .foregroundStyle(TideTheme.deep)
+            .padding(8)
+            .background(TideTheme.surface2)
+            .clipShape(Circle())
+
+        if let inviteURL = EventDeepLink.url(for: event) {
+            ShareLink(item: inviteURL, preview: SharePreview(event.name, image: inviteImage(for: event))) {
+                label
+            }
+        } else {
+            ShareLink(item: inviteImage(for: event), preview: SharePreview(event.name, image: inviteImage(for: event))) {
+                label
+            }
+        }
     }
 
     private func eventTypeColor(_ type: CleanupEventType) -> Color {

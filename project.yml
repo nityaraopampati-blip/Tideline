@@ -30,6 +30,10 @@ targets:
           UIApplicationSupportsMultipleScenes: false
         NSCameraUsageDescription: "Tideline uses your camera to scan barcodes and photograph items so it can tell you how to recycle or reduce plastic use."
         ITSAppUsesNonExemptEncryption: false
+        CFBundleURLTypes:
+          - CFBundleURLName: com.tideline.app
+            CFBundleURLSchemes:
+              - tideline
   TidelineTests:
     type: bundle.unit-test
     platform: iOS

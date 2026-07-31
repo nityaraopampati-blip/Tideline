@@ -15,6 +15,13 @@ struct ContentView: View {
                 MainTabView()
             }
         }
+        .sheet(item: $appState.pendingInvite) { invite in
+            JoinEventPromptView(
+                event: invite,
+                onJoin: { appState.acceptPendingInvite() },
+                onDismiss: { appState.dismissPendingInvite() }
+            )
+        }
     }
 }
 

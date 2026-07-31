@@ -7,6 +7,9 @@ final class AppState: ObservableObject {
     @Published private(set) var hasPromptedBaselineQuiz: Bool
     @Published private(set) var scanHistory: [ScanHistoryEntry]
     @Published private(set) var quizResults: [QuizResult]
+    /// An event decoded from a `tideline://join` link, waiting for the
+    /// person to confirm before it's added to their own Community list.
+    @Published var pendingInvite: CleanupEvent?
 
     private let store = LocalStore.shared
 
@@ -64,5 +67,39 @@ final class AppState: ObservableObject {
         let entry = ScanHistoryEntry(itemName: item.name, scanMethod: method, cachedItem: item)
         store.addScanHistoryEntry(entry)
         scanHistory = store.scanHistory
+    }
+
+    /// Decodes a `tideline://join` link and, if it's a real event invite,
+    /// holds onto it so the UI can ask "want to join this?" before it's
+    /// added anywhere.
+    func handleIncomingURL(_ url: URL) {
+        guard let event = EventDeepLink.event(from: url) else { return }
+        pendingInvite = event
+    }
+
+    /// Adds the pending invite to this device's own Community list as
+    /// joined. This only updates the local copy — since there's no shared
+    /// backend, the original host's "going" count on their device doesn't
+    /// change.
+    func acceptPendingInvite() {
+        guard let invite = pendingInvite else { return }
+        let joined = CleanupEvent(
+            id: invite.id,
+            name: invite.name,
+            location: invite.location,
+            type: invite.type,
+            date: invite.date,
+            endDate: invite.endDate,
+            notes: invite.notes,
+            isHostedByMe: false,
+            hasJoined: true,
+            goingCount: 1
+        )
+        CommunityStore.shared.addEvent(joined)
+        pendingInvite = nil
+    }
+
+    func dismissPendingInvite() {
+        pendingInvite = nil
     }
 }
